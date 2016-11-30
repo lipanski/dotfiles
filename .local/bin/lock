@@ -1,0 +1,10 @@
+#!/bin/sh
+
+scrot /tmp/last_screen.png
+mogrify -scale 10% -scale 1000% /tmp/last_screen.png
+i3lock -i /tmp/last_screen.png
+
+if [ "$1" = "eco" ]; then
+  sleep 60
+  pgrep i3lock && xset dpms force off
+fi

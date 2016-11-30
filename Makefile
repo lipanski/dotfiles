@@ -15,7 +15,7 @@ directories:
 
 utilities:
 	@echo "\n---utilities---\n"
-	sudo apt install acpi ranger feh udiskie lxappearance imagemagick scrot arandr xautolock rofi compton arc-theme
+	sudo apt install acpi ranger feh udiskie lxappearance imagemagick scrot arandr xautolock rofi compton xbacklight
 
 playerctl:
 	@echo "\n---playerctl---\n"

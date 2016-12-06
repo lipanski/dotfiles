@@ -2,10 +2,10 @@ all: copy utilities playerctl autorandr
 
 copy: directories
 	@echo "\n---copy---\n"
-	cp .config/i3/config ~/.config/i3/config
-	cp .config/i3status/config ~/.config/i3status/config
-	cp .local/bin/lock ~/.local/bin/lock
-	cp .local/bin/susp ~/.local/bin/susp
+	cp config/i3/config ~/.config/i3/config
+	cp config/i3status/config ~/.config/i3status/config
+	cp local/bin/lock ~/.local/bin/lock
+	cp local/bin/susp ~/.local/bin/susp
 
 directories:
 	@echo "\n---directories---\n"

@@ -6,6 +6,7 @@ copy: directories
 	cp config/i3status/config ~/.config/i3status/config
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
+	cp local/bin/poll-battery-uevent ~/.local/bin/poll-battery-uevent
 
 directories:
 	@echo "\n---directories---\n"

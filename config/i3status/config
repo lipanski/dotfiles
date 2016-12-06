@@ -34,12 +34,15 @@ ethernet _first_ {
 }
 
 battery 1 {
-        format = "%status %remaining"
-        status_chr = ""
-        status_bat = ""
-        status_full = ""
+        format = "%status %percentage %remaining"
+        status_chr = " "
+        status_bat = " "
+        status_full = " "
+        integer_battery_capacity = true
+        last_full_capacity = true
         threshold_type = "time"
         low_threshold = 15
+        path = "/tmp/.uevent"
 }
 
 path_exists VPN {

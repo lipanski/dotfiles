@@ -21,19 +21,19 @@ bindsym $mod+Return exec i3-sensible-terminal
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-bindsym $mod+h split h
+bindsym $mod+minus split h
 
-bindsym $mod+v split v
+bindsym $mod+backslash split v
 
 bindsym $mod+f fullscreen toggle
 
@@ -121,7 +121,7 @@ bar {
 
 bindsym $mod+d exec rofi -show run
 bindsym $mod+q kill
-bindsym $mod+l exec lock eco
+bindsym $mod+x exec lock eco
 bindsym --release Shift+Print exec scrot -s ~/Pictures/screen/screenshot-$(date +%F_%H-%M-%S).png
 bindsym Print exec scrot ~/Pictures/screen/screenshot-$(date +%F_%H-%M-%S).png
 bindsym $mod+t move workspace to output DP1

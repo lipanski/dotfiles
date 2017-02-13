@@ -17,7 +17,7 @@ directories:
 
 utilities:
 	@echo "\n---utilities---\n"
-	sudo apt install acpi ranger feh udiskie lxappearance imagemagick scrot arandr xautolock rofi compton xbacklight
+	sudo apt install acpi ranger feh udiskie lxappearance imagemagick scrot arandr xautolock rofi compton xbacklight jmtpfs
 
 playerctl:
 	@echo "\n---playerctl---\n"

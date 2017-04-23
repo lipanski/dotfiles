@@ -47,6 +47,7 @@ mail:
 	cp mutt/template ~/.mutt/template
 	cp local/bin/keyring ~/.local/bin/keyring
 	cp local/bin/mbsync-daemon ~/.local/bin/mbsync-daemon
+	mkdir -p ~/.abook
 
 calendar:
 	sudo apt install gcalcli

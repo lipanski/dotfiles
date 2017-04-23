@@ -1,0 +1,72 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+interval=5
+
+[volume]
+label=♪
+instance=Master
+interval=1
+
+[mail]
+command=~/.config/i3blocks/scripts/mail email@example.com
+
+[battery]
+command=~/.config/i3blocks/scripts/battery
+interval=30
+
+[memory]
+label=MEM
+separator=false
+interval=30
+
+[disk]
+label=ROOT
+instance=/root
+separator=false
+interval=30
+
+[disk]
+label=HOME
+interval=30
+
+[iface]
+instance=wlp4s0
+color=#00FF00
+
+[key_layout]
+command=~/.config/i3blocks/scripts/key_layout
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+#[mediaplayer]
+#instance=spotify
+#signal=10

@@ -1,0 +1,43 @@
+### email@example.com ###
+
+IMAPAccount example-gmail
+Host imap.gmail.com
+User email@example.com
+PassCmd "keyring -g email@example.com"
+AuthMechs *
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore example-gmail-remote
+Account example-gmail
+
+MaildirStore example-gmail-local
+Path ~/.mail/email@example.com/
+Inbox ~/.mail/email@example.com/inbox
+
+Channel example-gmail-default
+Master :example-gmail-remote:
+Slave :example-gmail-local:
+Patterns INBOX news somefolder
+
+Channel example-gmail-sent
+Master :example-gmail-remote:"[Gmail]/Sent Mail"
+Slave  :example-gmail-local:sent
+
+Channel example-gmail-drafts
+Master :example-gmail-remote:"[Gmail]/Drafts"
+Slave  :example-gmail-local:drafts
+
+Channel example-gmail-bin
+Master :example-gmail-remote:"[Gmail]/Bin"
+Slave  :example-gmail-local:bin
+
+Channel example-gmail-spam
+Master :example-gmail-remote:"[Gmail]/Spam"
+Slave  :example-gmail-local:spam
+
+Create Both # Automatically create missing mailboxes, both locally and on the server
+Expunge Both # Automatically delete messages on either side
+SyncState * # Save the synchronization state files in the relevant directory
+CopyArrivalDate yes

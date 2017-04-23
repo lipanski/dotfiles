@@ -146,6 +146,7 @@ bindsym ctrl+F3 exec playerctl next
 
 # Startup
 
+exec_always setxkbmap ro
 exec_always feh --bg-fill ~/Pictures/Pieter-Bruegel-w16801050.jpg
 exec dropbox start
 exec tomboy
@@ -154,8 +155,8 @@ exec nm-applet
 exec --no-startup-id xautolock -time 5 -locker 'lock eco' &
 exec xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Two-Finger Scrolling' 1 1
 exec compton -b
-exec --no-startup-id poll-battery-uevent &
 exec system-config-printer-applet
+exec_always mbsync-daemon &
 
 # Floating
 

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$(pidof -x -o %PPID mbsync-daemon | wc -w)" -gt 1 ]
+then
+  echo "Program is already running!"
+  exit 1
+fi
+
+while true
+do
+  killall mbsync -q
+  mbsync -a &
+  sleep 60
+done

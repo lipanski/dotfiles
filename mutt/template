@@ -1,0 +1,16 @@
+set folder = "~/.mail/email@example.com"
+set mbox_type = "Maildir"
+set mbox = "+inbox"
+set record = "+sent"
+set postponed = "+drafts"
+set trash = +bin
+set spoolfile = "~/.mail/email@example.com/inbox"
+set smtp_url = "smtps://email@example.com@smtp.gmail.com:465/"
+set smtp_pass = `keyring -g email@example.com`
+set smtp_authenticators = "login"
+set ssl_use_sslv3 = yes
+set realname = "EXAMPLE"
+set from = "email@example.com"
+set use_from = yes
+set envelope_from = yes
+set query_command = "abook --datafile ~/.abook/email@example.com --mutt-query '%s'"

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+COUNT=`ls -1 ~/.mail/${1}/inbox/new | wc -l`
+if [ $COUNT = 0 ]; then
+  echo $COUNT
+else
+  echo "<span color='Lime'>${COUNT}</span>"
+fi

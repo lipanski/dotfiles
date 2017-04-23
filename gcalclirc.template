@@ -1,0 +1,10 @@
+--client_id=xxx
+--client_secret=yyy
+--defaultCalendar=email@example.com
+--nodefault_reminders
+--military
+--monday
+--detail_location
+--detail_attendees
+--detail_length
+--detail_description

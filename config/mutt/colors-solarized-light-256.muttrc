@@ -103,15 +103,15 @@ color quoted4       color166        color233
 color signature     color245        color233
 color bold          color254        color233
 color underline     color254        color233
-color normal        color240        color233
+color normal        color250        color233
 #
-color body          color239        color233        "[;:][-o][)/(|]"    # emoticons
-color body          color239        color233        "[;:][)(|]"         # emoticons
-color body          color239        color233        "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
+color body          color250        color233        "[;:][-o][)/(|]"    # emoticons
+color body          color250        color233        "[;:][)(|]"         # emoticons
+color body          color250        color233        "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
                                                      |FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|\
                                                      |IRL|RTFM|ROTFL|ROFL|YMMV)[*]?"
-color body          color239        color233        "[ ][*][^*]*[*][ ]?" # more emoticon?
-color body          color239        color233        "[ ]?[*][^*]*[*][ ]" # more emoticon?
+color body          color250        color233        "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body          color250        color233        "[ ]?[*][^*]*[*][ ]" # more emoticon?
 
 ## pgp
 

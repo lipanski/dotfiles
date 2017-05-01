@@ -1,6 +1,13 @@
 #!/bin/sh
 
-COUNT=`ls -1 ~/.mail/${1}/inbox/new | wc -l`
+
+if [ -z "$2" ]; then
+  DIR="inbox"
+else
+  DIR="$2"
+fi
+
+COUNT=`ls -1 ~/.mail/${1}/$DIR/new | wc -l`
 if [ $COUNT = 0 ]; then
   echo $COUNT
 else

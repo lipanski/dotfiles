@@ -8,7 +8,6 @@ copy: directories
 	cp config/feh/keys ~/.config/feh/keys
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
-	cp local/bin/poll-battery-uevent ~/.local/bin/poll-battery-uevent
 
 directories:
 	@echo "\n---directories---\n"
@@ -39,11 +38,17 @@ autorandr:
 
 mail:
 	sudo apt install mutt isync abook w3m urlscan python-keyring
-	cp mbrsync.template ~/.mbrsync.template
+	cp mailcap ~/.mailcap
+	mkdir -p ~/.config/mutt
+	cp config/mutt/colors-solarized-light-256.muttrc ~/.config/mutt/colors-solarized-light-256.muttrc
+	cp mbsyncrc.template ~/.mbsyncrc.template
 	cp muttrc.template ~/.muttrc.template
+	mkdir -p ~/.mutt/tmp
 	cp mutt/template ~/.mutt/template
 	cp local/bin/keyring ~/.local/bin/keyring
 	cp local/bin/mbsync-daemon ~/.local/bin/mbsync-daemon
+	mkdir -p ~/.abook
 
 calendar:
 	sudo apt install gcalcli
+	cp gcalclirc.template ~/.gcalclirc.template

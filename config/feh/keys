@@ -1,1 +1,10 @@
-delete Delete
+delete D
+orient_3 less
+orient_1 greater
+toggle_info i
+zoom_in h Up
+zoom_out l Down
+prev_img k
+next_img j
+jump_fwd d
+jump_back u

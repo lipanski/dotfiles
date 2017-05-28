@@ -1,0 +1,15 @@
+#!/bin/sh
+
+ACTIVESYNC=$(pacmd list-sinks | grep \* | awk '{print $3}')
+
+case "$1" in
+    up)
+         pactl set-sink-volume "$ACTIVESYNC" +5%
+         ;;
+    down)
+         pactl set-sink-volume "$ACTIVESYNC" -5%
+         ;;
+    mute)
+         pactl set-sink-mute "$ACTIVESYNC" toggle
+         ;;
+esac

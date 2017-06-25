@@ -68,6 +68,8 @@ macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract 
 
 ### Keys: Index
 
+macro index i "<change-folder>=inbox<Enter>" "go to your inbox"
+
 bind index j next-entry
 bind index k previous-entry
 bind index J next-thread

@@ -1,4 +1,4 @@
-all: utilities i3 playerctl autorandr copy mail calendar
+all: utilities i3 playerctl autorandr copy mail git calendar
 
 copy: directories
 	@echo "\n---copy---\n"
@@ -48,6 +48,9 @@ mail:
 	cp local/bin/keyring ~/.local/bin/keyring
 	cp local/bin/mbsync-daemon ~/.local/bin/mbsync-daemon
 	mkdir -p ~/.abook
+
+git:
+	cp gitconfig.template ~/.gitconfig.template
 
 calendar:
 	sudo apt install gcalcli

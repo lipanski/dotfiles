@@ -1,0 +1,31 @@
+[user]
+  name = xxx
+  email = xxx@example.com
+[alias]
+  co = checkout
+  ci = commit
+  cf = commit --fixup
+  cs = commit --squash
+  rb = rebase
+  rbi = rebase -i
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  cp-theirs = cherry-pick --strategy=recursive -X theirs
+  show-conflicts = diff --name-only --diff-filter=U
+[push]
+  default = simple
+  followTags = true
+[core]
+  mergeoptions = --no-edit
+  editor = vim
+[hub]
+  protocol = https
+[merge]
+  conflictstyle = diff3
+[status]
+  showUntrackedFiles = all
+[rebase]
+  autoSquash = true

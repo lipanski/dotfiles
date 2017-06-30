@@ -107,7 +107,8 @@ bar {
 
 bindsym $mod+d exec rofi -show run
 bindsym $mod+q kill
-bindsym $mod+x exec lock eco
+bindsym $mod+x exec power lock
+bindsym $mod+Shift+x exec power suspend
 bindsym --release Shift+Print exec scrot -s ~/Pictures/screen/screenshot-$(date +%F_%H-%M-%S).png
 bindsym Print exec scrot ~/Pictures/screen/screenshot-$(date +%F_%H-%M-%S).png
 bindsym $mod+t move workspace to output DP1
@@ -138,7 +139,7 @@ exec dropbox start
 exec tomboy
 exec udiskie -as
 exec nm-applet
-exec --no-startup-id xautolock -time 5 -locker 'lock eco' &
+exec --no-startup-id xautolock -time 5 -locker 'power lock' &
 exec xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Two-Finger Scrolling' 1 1
 exec compton -b
 exec system-config-printer-applet

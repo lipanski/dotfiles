@@ -8,6 +8,7 @@ copy: directories
 	cp config/feh/keys ~/.config/feh/keys
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
+	cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl
 
 directories:
 	@echo "\n---directories---\n"

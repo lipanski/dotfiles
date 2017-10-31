@@ -133,7 +133,7 @@ bindsym ctrl+F3 exec playerctl next
 
 # Startup
 
-exec_always setxkbmap ro
+exec_always setxkbmap fl
 exec_always feh --bg-fill ~/Pictures/Pieter-Bruegel-w16801050.jpg
 exec dropbox start
 exec tomboy

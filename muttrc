@@ -1,22 +1,20 @@
 # vim:ft=muttrc
 
-### Default account
-
-source ~/.mutt/email@example.com
-
-### Accounts
-
-folder-hook "email@example.com" "source ~/.mutt/email@example.com"
+source ~/.mutt/accounts
 
 ### General
 
 # Idle time before scanning
-set timeout = 10
-set mail_check = 10
+set timeout = 5
+# NeoMutt 1.7.2 still required the pattern - https://github.com/neomutt/neomutt/issues/329
+timeout-hook "*" "exec sync-mailbox"
+set mail_check = 5
 set beep_new = yes
 
 # Don't prompt
 set quit
+set delete
+unset confirmappend
 
 set editor = vim
 set charset = "utf-8"
@@ -42,6 +40,9 @@ set pager_stop = yes
 # Reply to the "reply-to" address (instead of from)
 set reply_to = yes
 
+# When replying to your own emails, don't send the email to yourself
+set reply_self=no
+
 # Skip prompting for sender/subject on replies
 set fast_reply = yes
 
@@ -51,6 +52,10 @@ set include = yes
 # Don't wait after switching between folders
 set sleep_time = 0
 
+# Forward attachments (instead of quoting only the text)
+set mime_forward=yes
+set mime_forward_rest=yes
+
 # Parse HTML emails (see ~/.mailcap entry for text/html)
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -58,9 +63,7 @@ alternative_order text/plain text/enriched text/html
 # Theme
 source ~/.config/mutt/colors-solarized-light-256.muttrc
 
-### Keys: Folders
-
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/email@example.com<enter><change-folder>!<enter>'
+color index color70 color233 "~T" # Tagged messages
 
 ### Keys: Click URLs with urlscan
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"

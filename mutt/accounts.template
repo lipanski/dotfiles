@@ -1,0 +1,11 @@
+### Default account
+
+source ~/.mutt/email@example.com
+
+### Accounts
+
+folder-hook "email@example.com" "source ~/.mutt/email@example.com"
+
+### Keys: Folders
+
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/email@example.com<enter><change-folder>!<enter>'

@@ -38,14 +38,15 @@ autorandr:
 	sudo udevadm control --reload-rules
 
 mail:
-	sudo apt install mutt isync abook w3m urlscan python-keyring
+	sudo apt install mutt isync abook w3m urlscan python-keyring notmuch
 	cp mailcap ~/.mailcap
 	mkdir -p ~/.config/mutt
 	cp config/mutt/colors-solarized-light-256.muttrc ~/.config/mutt/colors-solarized-light-256.muttrc
 	cp mbsyncrc.template ~/.mbsyncrc.template
-	cp muttrc.template ~/.muttrc.template
+	cp muttrc ~/.muttrc
 	mkdir -p ~/.mutt/tmp
 	cp mutt/template ~/.mutt/template
+	cp mutt/accounts.template ~/.mutt/accounts.template
 	cp local/bin/keyring ~/.local/bin/keyring
 	cp local/bin/mbsync-daemon ~/.local/bin/mbsync-daemon
 	mkdir -p ~/.abook

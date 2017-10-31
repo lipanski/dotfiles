@@ -8,6 +8,10 @@ source ~/.mutt/accounts
 set timeout = 5
 # NeoMutt 1.7.2 still required the pattern - https://github.com/neomutt/neomutt/issues/329
 timeout-hook "*" "exec sync-mailbox"
+
+# Disable waiting for keystrokes after shell-escape, pipe-message etc. (makes urlscan less annoying)
+unset wait_key
+
 set mail_check = 5
 set beep_new = yes
 
@@ -66,6 +70,7 @@ source ~/.config/mutt/colors-solarized-light-256.muttrc
 color index color70 color233 "~T" # Tagged messages
 
 ### Keys: Click URLs with urlscan
+
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 

@@ -9,7 +9,7 @@
   rb = rebase
   rbi = rebase -i
   st = status
-  br = branch
+  br = branch --sort=committerdate
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p

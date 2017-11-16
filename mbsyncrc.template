@@ -3,7 +3,7 @@
 IMAPAccount example-gmail
 Host imap.gmail.com
 User email@example.com
-PassCmd "keyring -g email@example.com"
+PassCmd "keyring get mbsync email@example.com"
 AuthMechs *
 SSLType IMAPS
 SSLVersions TLSv1.2

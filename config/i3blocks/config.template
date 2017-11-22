@@ -56,9 +56,9 @@ interval=30
 label=HOME
 interval=30
 
-[iface]
-instance=wlp4s0
-color=#00FF00
+# [iface]
+# instance=wlp4s0
+# color=#00FF00
 
 [key_layout]
 command=~/.config/i3blocks/scripts/key_layout

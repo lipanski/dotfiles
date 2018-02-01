@@ -6,8 +6,7 @@ source ~/.mutt/accounts
 
 # Idle time before scanning
 set timeout = 5
-# NeoMutt 1.7.2 still required the pattern - https://github.com/neomutt/neomutt/issues/329
-timeout-hook "*" "exec sync-mailbox"
+timeout-hook "exec sync-mailbox"
 
 # Disable waiting for keystrokes after shell-escape, pipe-message etc. (makes urlscan less annoying)
 unset wait_key
@@ -26,7 +25,8 @@ set send_charset = utf-8
 set tmpdir = "~/.mutt/tmp"
 set sort = reverse-threads
 set sort_aux = last-date-received
-set index_format = "%Z %{%d.%m.%y %H:%M} %-15.15L (%?l?%4l&%4c?) %s"
+set date_format = "%d.%m.%y %H:%M"
+set index_format = "%Z %D %-15.15L (%?l?%4l&%4c?) %s"
 set menu_scroll
 
 # Use the date received rather than the date sent to thread messages
@@ -90,6 +90,7 @@ bind index / search
 bind index n search-next
 bind index N search-opposite
 
+bind index g noop
 bind index gg first-entry
 bind index G last-entry
 
@@ -120,6 +121,7 @@ bind pager / search
 bind pager n search-next
 bind pager N search-opposite
 
+bind pager g noop
 bind pager gg top
 bind pager G bottom
 

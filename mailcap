@@ -2,3 +2,4 @@ text/html; w3m -I %{charset} -T text/html; copiousoutput;
 image/*; feh --scale-down %s
 application/msword; libreoffice %s
 application/vnd.openxm; libreoffice %s
+application/pdf; evince %s

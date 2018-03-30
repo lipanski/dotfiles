@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+test=$(xset q | grep "DPMS is Enabled")
+if [[ $BLOCK_BUTTON = "1" ]]; then
+  if [[ $test ]]; then
+    xset s off -dpms
+    echo "LOCK OFF"
+  else
+    xset s on +dpms
+    echo "LOCK ON"
+  fi
+else
+  if [[ $test ]]; then
+    echo "LOCK ON"
+  else
+    echo "LOCK OFF"
+  fi
+fi

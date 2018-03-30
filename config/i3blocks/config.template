@@ -34,6 +34,10 @@ label=♪
 instance=Master
 interval=1
 
+[toggle_screen_lock]
+command=~/.config/i3blocks/scripts/toggle_screen_lock
+interval=120
+
 [mail]
 command=~/.config/i3blocks/scripts/mail email@example.com
 

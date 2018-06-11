@@ -20,7 +20,7 @@ directories:
 
 utilities:
 	@echo "\n---utilities---\n"
-	sudo apt install acpi ranger feh udiskie lxappearance imagemagick scrot arandr xautolock rofi compton xbacklight jmtpfs
+	sudo apt install acpi ranger feh udiskie lxappearance imagemagick scrot arandr xautolock rofi compton xbacklight jmtpfs fonts-font-awesome
 
 playerctl:
 	@echo "\n---playerctl---\n"

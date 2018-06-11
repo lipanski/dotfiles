@@ -1,4 +1,4 @@
-all: utilities i3 playerctl autorandr copy mail git calendar
+all: utilities i3 playerctl autorandr copy mail git
 
 copy: directories
 	@echo "\n---copy---\n"
@@ -8,7 +8,7 @@ copy: directories
 	cp config/feh/keys ~/.config/feh/keys
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
-	cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl
+	sudo cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl
 
 directories:
 	@echo "\n---directories---\n"
@@ -54,6 +54,3 @@ mail:
 git:
 	cp gitconfig.template ~/.gitconfig.template
 
-calendar:
-	sudo apt install gcalcli
-	cp gcalclirc.template ~/.gcalclirc.template

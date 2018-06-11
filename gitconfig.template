@@ -11,6 +11,7 @@
   st = status
   br = branch --sort=committerdate
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  changelog = log --pretty=format:\"%h %ad | %s [%an]\" --date=short --no-merges
   type = cat-file -t
   dump = cat-file -p
   cp-theirs = cherry-pick --strategy=recursive -X theirs

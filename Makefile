@@ -20,7 +20,10 @@ directories:
 
 utilities:
 	@echo "\n---utilities---\n"
-	sudo apt install acpi ranger feh udiskie lxappearance imagemagick scrot arandr xautolock rofi compton xbacklight jmtpfs fonts-font-awesome
+	sudo apt install \
+		acpi ranger feh udiskie lxappearance imagemagick scrot arandr \
+		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
+		jq zsh network-manager-openvpn vim curl git
 
 playerctl:
 	@echo "\n---playerctl---\n"

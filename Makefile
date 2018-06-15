@@ -23,7 +23,8 @@ utilities:
 	sudo apt install \
 		acpi ranger feh udiskie lxappearance imagemagick scrot arandr \
 		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
-		jq zsh network-manager-openvpn vim curl git
+		jq zsh network-manager-openvpn vim curl git \
+		exfat-fuse exfat-fuse
 
 playerctl:
 	@echo "\n---playerctl---\n"

@@ -49,6 +49,8 @@ mail:
 	cp mbsyncrc.template ~/.mbsyncrc.template
 	cp muttrc ~/.muttrc
 	mkdir -p ~/.mutt/tmp
+	mkdir -p ~/.mutt/signatures
+	touch ~/.mutt/signatures/default
 	cp mutt/template ~/.mutt/template
 	cp mutt/accounts.template ~/.mutt/accounts.template
 	cp local/bin/keyring ~/.local/bin/keyring

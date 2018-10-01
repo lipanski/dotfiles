@@ -14,6 +14,7 @@ set from = "email@example.com"
 set use_from = yes
 set envelope_from = yes
 set query_command = "abook --datafile ~/.abook/email@example.com --mutt-query '%s'"
+# set signature = "~/.mutt/signatures/default"
 
 # Notmuch
 # set virtual_spoolfile = yes

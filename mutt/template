@@ -2,6 +2,10 @@ set folder = "~/.mail/email@example.com"
 set mbox_type = "Maildir"
 set mbox = "+inbox"
 set record = "+sent"
+# Gmail's SMTP server stores the sent message automatically
+# Setting copy = no avoids duplicated sent messages
+# See https://superuser.com/a/1106152
+set copy = no
 set postponed = "+drafts"
 set trash = +bin
 set spoolfile = "~/.mail/email@example.com/inbox"

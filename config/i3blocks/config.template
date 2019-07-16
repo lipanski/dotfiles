@@ -38,6 +38,10 @@ interval=1
 command=~/.config/i3blocks/scripts/toggle_screen_lock
 interval=120
 
+[toggle_mail_sync]
+command=~/.config/i3blocks/scripts/toggle_mail_sync
+interval=30
+
 [mail]
 command=~/.config/i3blocks/scripts/mail email@example.com
 

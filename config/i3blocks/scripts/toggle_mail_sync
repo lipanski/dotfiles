@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [[ -n $BLOCK_BUTTON ]]
+then
+  if pgrep -x "mbsync-daemon" > /dev/null
+  then
+    killall mbsync-daemon -q
+    echo "MBSYNC OFF"
+  else
+    mbsync-daemon </dev/null &>/dev/null &
+    echo "MBSYNC ON"
+  fi
+else
+  if pgrep -x "mbsync-daemon" > /dev/null
+  then
+    echo "MBSYNC ON"
+  else
+    echo "MBSYNC OFF"
+  fi
+fi

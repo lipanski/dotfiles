@@ -24,7 +24,7 @@ utilities:
 		acpi ranger feh udiskie lxappearance imagemagick scrot arandr \
 		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
 		jq zsh network-manager-openvpn vim curl git \
-		colordiff
+		colordiff xclip
 
 playerctl:
 	@echo "\n---playerctl---\n"

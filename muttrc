@@ -40,6 +40,9 @@ set imap_check_subscribed
 
 # Don't go into the next message while scrolling
 set pager_stop = yes
+set pager_index_lines = 10
+set pager_context = 3
+set tilde = yes
 
 # Reply to the "reply-to" address (instead of from)
 set reply_to = yes
@@ -77,6 +80,11 @@ macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract 
 ### Keys: Save all attachments
 
 macro pager S "<pipe-message> ripmime -i - -d ~/Downloads && rm ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
+
+### Keys: Copy text/plain message to clipboard
+
+set pipe_decode = yes
+macro pager C "<pipe-message> xclip -sel c"
 
 ### Keys: sync
 

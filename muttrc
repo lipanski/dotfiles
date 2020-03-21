@@ -74,6 +74,14 @@ color index color70 color233 "~T" # Tagged messages
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
+### Keys: Save all attachments
+
+macro pager S "<pipe-message> ripmime -i - -d ~/Downloads && rm ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
+
+### Keys: sync
+
+macro index,pager O "<shell-escape>mbsync -a<enter>" "run mbsync to sync all mail"
+
 ### Keys: Index
 
 macro index i "<change-folder>=inbox<Enter>" "go to your inbox"

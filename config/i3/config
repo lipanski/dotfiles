@@ -6,7 +6,7 @@ font pango:monospace 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -39,6 +39,9 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# disable focusing the window where the mouse is
+focus_follows_mouse no
 
 set $workspace1 "1"
 set $workspace2 "2"
@@ -136,7 +139,6 @@ bindsym ctrl+F3 exec playerctl next
 exec_always setxkbmap fl
 exec_always feh --bg-fill ~/Pictures/Pieter-Bruegel-w16801050.jpg
 exec dropbox start
-exec tomboy
 exec udiskie -as
 exec nm-applet
 exec --no-startup-id xautolock -time 5 -locker 'power lock' &
@@ -144,11 +146,6 @@ exec xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Two-Finger Scroll
 exec compton -b
 exec system-config-printer-applet
 exec_always mbsync-daemon &
-exec_always autorandr -c
-
-# Floating
-
-for_window [class="Tomboy"] floating enable
 
 # Borders
 

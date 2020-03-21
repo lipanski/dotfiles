@@ -37,3 +37,9 @@ https://bloerg.net/2013/10/09/syncing-mails-with-mbsync-instead-of-offlineimap.h
 # Abook
 
 abook --convert --informat vcard --infile ~/.abook/contacts.vcf --outformat abook --outfile ~/.abook/email@example.com
+
+# Other
+
+https://webgefrickel.de/blog/a-modern-mutt-setup-part-two
+https://github.com/webgefrickel/dotfiles/blob/master/office/mutt/muttrc
+

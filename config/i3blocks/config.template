@@ -30,6 +30,7 @@ markup=pango
 interval=5
 
 [volume]
+command=/usr/share/i3blocks/volume 0 pulse
 label=♪
 instance=Master
 interval=1

@@ -40,6 +40,8 @@ set imap_check_subscribed
 
 # Don't go into the next message while scrolling
 set pager_stop = yes
+
+# Other pager options
 set pager_index_lines = 10
 set pager_context = 3
 set tilde = yes
@@ -71,6 +73,13 @@ alternative_order text/plain text/enriched text/html
 source ~/.config/mutt/colors-solarized-light-256.muttrc
 
 color index color70 color233 "~T" # Tagged messages
+
+# Notmuch
+
+set query_command = "notmuch address from:/%s/"
+set query_format = "%5c %t %a %n %?e?(%e)?"
+
+bind index,pager + entire-thread
 
 ### Keys: Click URLs with urlscan
 

@@ -8,7 +8,7 @@ fi
 
 while true
 do
-  killall mbsync -q
-  mbsync -a &
-  sleep 60
+  killall -q mbsync notmuch
+  mbsync -a && notmuch tag --batch --input ~/.notmuch-tags && notmuch new &
+  sleep 120
 done

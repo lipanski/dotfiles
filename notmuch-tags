@@ -1,0 +1,4 @@
+-inbox -- not folder:/inbox|sent/
++facturi -- folder:/facturi/
++deleted -- folder:/bin/
++spam -- folder:/spam/

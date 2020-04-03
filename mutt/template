@@ -17,9 +17,10 @@ set realname = "EXAMPLE"
 set from = "email@example.com"
 set use_from = yes
 set envelope_from = yes
-set query_command = "abook --datafile ~/.abook/email@example.com --mutt-query '%s'"
+set query_command = "notmuch address folder:/florinelul@gmail.com/ from:/%s/"
 # set signature = "~/.mutt/signatures/default"
 
 # Notmuch
-# set virtual_spoolfile = yes
-# virtual-mailboxes "email@example.com/inbox" "notmuch:///home/xxx/.mail?query=folder:email%40example.com%2Finbox%20folder:email%40example.com%2Fsent"
+
+macro index H "<vfolder-from-query>folder:/email@example.com/ "
+macro index I "<change-vfolder>email@example.com<enter>"

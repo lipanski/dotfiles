@@ -4,8 +4,12 @@ source ~/.mutt/email@example.com
 
 ### Accounts
 
+set virtual_spoolfile = yes
+
+virtual-mailboxes "email@example.com" "notmuch://$HOME/.mail?query=folder:/email@example.com/ and folder:/inbox|sent/ and date:12months.."
+
 folder-hook "email@example.com" "source ~/.mutt/email@example.com"
 
 ### Keys: Folders
 
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/email@example.com<enter><change-folder>!<enter>'
+macro index <f2> "<sync-mailbox><enter-command>source ~/.mutt/email@example.com<enter><change-vfolder>email@example.com<enter>"

@@ -53,6 +53,8 @@ mail:
 	touch ~/.mutt/signatures/default
 	cp mutt/template ~/.mutt/template
 	cp mutt/accounts.template ~/.mutt/accounts.template
+	cp notmuch-config.template ~/.notmuch-config.template
+	cp notmuch-tags ~/.notmuch-tags
 	cp local/bin/keyring ~/.local/bin/keyring
 	cp local/bin/mbsync-daemon ~/.local/bin/mbsync-daemon
 	mkdir -p ~/.abook

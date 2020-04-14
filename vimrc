@@ -18,6 +18,31 @@ set number
 set laststatus=2
 set noswapfile
 
+" Highlight current line
+set cursorline
+
+" Highlight column 120
+set colorcolumn=120
+
+" Keep 5 lines above / below cursor
+set scrolloff=5
+
+" Always use System clipboard
+set clipboard=unnamedplus
+
+" Open new splits on the right side / on the bottom
+set splitbelow
+set splitright
+
+" Show completion window when multiple commands match
+set wildmode=longest,list
+
+" Disable last line that shows current mode
+set noshowmode
+
+" Undo always works
+set hidden
+
 "" Whitespace
 set tabstop=2 shiftwidth=2
 set expandtab

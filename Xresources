@@ -1,65 +1,56 @@
-URxvt*VT100.Translations: 	#override \
-		Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
-		Ctrl Shift <Key>C:	copy-selection(CLIPBOARD) \n\
-		Ctrl <Key> minus:	smaller-vt-font() \n\
-		Ctrl <Key> plus:	larger-vt-font() \n\
-		Ctrl <Key> 0:		set-vt-font(d)
-
 URxvt.loginShell: true
 URxvt.saveLines: 10000
+URxvt.iso14755: false
+URxvt.font: xft:DejaVuSansMono:size=11:antialias=true
 URxvt.lineSpace: 0
 URxvt.letterSpace: 0
-URxvt.font: xft:DejaVuSansMono:size=11:antialias=true
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
-URxvt.iso14755: false
 
-! Enable left mouse click url launcher
-URxvt*matcher.button: 1
-URxvt*perl-ext-common: default,matcher
-URxvt*url-launcher: firefox
+! Plugins
+URxvt.perl-ext-common: default,matcher,clipboard
 
-! Solarized
+! Open URLs inside the browser on click
+URxvt.matcher.button: 1
+URxvt.url-launcher: firefox
 
-URxvt*background: #002B36
-URxvt*foreground: #D2D2D2
-URxvt*borderColor: #343434
-!URxvt*fading:                40
-!URxvt*fadeColor:             #1c1c1c
-!URxvt*cursorColor:           #8a8a8a
-!URxvt*pointerColorBackground:#585858
-!URxvt*pointerColorForeground:#8a8a8a
+! Replicate PRIMARY cut buffers into CLIPBOARD
+URxvt.clipboard.autocopy: true
+! URxvt.keysym.M-c: perl:clipboard:copy
+! URxvt.keysym.M-v: perl:clipboard:paste
 
-!Colors
-!-------------------------
-!black
-URxvt*color0: #222222
-URxvt*color8: #454545
+! Theme (Solarized)
+URxvt.background: #002B36
+URxvt.foreground: #D2D2D2
 
-!red
-URxvt*color1: #9E5641
-URxvt*color9: #CC896D
+! black
+URxvt.color0: #222222
+URxvt.color8: #454545
 
-!green
-URxvt*color2: #6C7E55
-URxvt*color10: #C4DF90
+! red
+URxvt.color1: #9E5641
+URxvt.color9: #CC896D
 
-!yellow
-URxvt*color3: #CAAF2B
-URxvt*color11: #FFE080
+! green
+URxvt.color2: #6C7E55
+URxvt.color10: #C4DF90
 
-!blue
-URxvt*color4: #7FB8D8
-URxvt*color12: #B8DDEA
+! yellow
+URxvt.color3: #CAAF2B
+URxvt.color11: #FFE080
 
-!magenta
-URxvt*color5: #956D9D
-URxvt*color13: #C18FCB
+! blue
+URxvt.color4: #7FB8D8
+URxvt.color12: #B8DDEA
 
-!cyan
-URxvt*color6: #4c8ea1
-URxvt*color14: #6bc1d0
+! magenta
+URxvt.color5: #956D9D
+URxvt.color13: #C18FCB
 
-!white
-URxvt*color7: #808080
-URxvt*color15: #cdcdcd
+! cyan
+URxvt.color6: #4c8ea1
+URxvt.color14: #6bc1d0
+
+! white
+URxvt.color7: #808080
+URxvt.color15: #cdcdcd

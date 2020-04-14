@@ -1,4 +1,4 @@
-all: utilities i3 playerctl autorandr copy mail git
+all: utilities terminal i3 playerctl autorandr copy mail git
 
 copy: directories
 	@echo "\n---copy---\n"
@@ -25,6 +25,11 @@ utilities:
 		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
 		jq zsh network-manager-openvpn vim curl git \
 		colordiff xclip
+
+terminal:
+	@echo "\n---terminal---\n"
+	sudo apt install rxvt-unicode
+	cp Xresources ~/.Xresources
 
 playerctl:
 	@echo "\n---playerctl---\n"

@@ -60,4 +60,6 @@ set rtp+=~/.fzf
 "" Directory tree
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
+" Perform a case-insensitive sort
+let g:netrw_sort_options = "i"
 

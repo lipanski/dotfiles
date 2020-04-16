@@ -68,7 +68,18 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set rtp+=~/.fzf
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable("ag")
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%l:%c%m
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
 
 "" Directory tree
 
@@ -105,3 +116,7 @@ nmap <silent> <leader>tT :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
+
+" Browse through search results faster
+nmap <silent> <RIGHT> :cnext<CR>
+nmap <silent> <LEFT> :cprev<CR>

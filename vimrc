@@ -62,4 +62,6 @@ let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 " Perform a case-insensitive sort
 let g:netrw_sort_options = "i"
+" Hide gitignored files and other common patterns
+let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/'
 

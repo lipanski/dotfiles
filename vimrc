@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'pearofducks/ansible-vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'janko-m/vim-test'
+Plugin 'rhysd/vim-crystal'
 call vundle#end()
 filetype plugin indent on
 
@@ -23,6 +24,9 @@ set number
 set laststatus=2
 
 set noswapfile
+
+" Save file on buffer switch
+set autowrite
 
 " Highlight current line
 set cursorline
@@ -120,3 +124,4 @@ nmap <silent> <leader>tg :TestVisit<CR>
 " Browse through search results faster
 nmap <silent> <RIGHT> :cnext<CR>
 nmap <silent> <LEFT> :cprev<CR>
+

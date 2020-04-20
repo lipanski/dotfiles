@@ -33,8 +33,9 @@ terminal:
 
 vim:
 	@echo "\n---vim---\n"
-	sudo apt install vim
+	sudo apt install neovim
 	cp vimrc ~/.vimrc
+	cp config/nvim/init.vim ~/.config/nvim/
 
 playerctl:
 	@echo "\n---playerctl---\n"

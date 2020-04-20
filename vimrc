@@ -5,9 +5,12 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'pearofducks/ansible-vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'janko-m/vim-test'
+Plugin 'airblade/vim-gitgutter' " Gutter with line modification icons
+Plugin 'airblade/vim-rooter' " Automatically set pwd to git repo root
+Plugin 'pearofducks/ansible-vim'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'rhysd/vim-crystal'
 call vundle#end()
 filetype plugin indent on
@@ -19,6 +22,9 @@ syntax on
 set encoding=utf-8
 
 set number
+
+" Theme
+color desert
 
 " Always display the status line
 set laststatus=2

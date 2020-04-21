@@ -35,6 +35,7 @@ vim:
 	@echo "\n---vim---\n"
 	sudo apt install neovim
 	cp vimrc ~/.vimrc
+	mkdir -p ~/.config/nvim/
 	cp config/nvim/init.vim ~/.config/nvim/
 
 playerctl:

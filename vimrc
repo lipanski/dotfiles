@@ -12,6 +12,10 @@ Plugin 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plugin 'pearofducks/ansible-vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'rhysd/vim-crystal'
+Plugin 'morhetz/gruvbox'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-fugitive'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 filetype plugin indent on
 
@@ -24,7 +28,8 @@ set encoding=utf-8
 set number
 
 " Theme
-color desert
+colorscheme gruvbox
+set background=dark
 
 " Always display the status line
 set laststatus=2
@@ -87,7 +92,7 @@ if executable("ag")
 
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
+    " nnoremap \ :Ag<SPACE>
   endif
 endif
 

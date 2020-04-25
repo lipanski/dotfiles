@@ -87,13 +87,18 @@ set smartcase
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepprg=ag\ --vimgrep
   set grepformat=%f:%l:%c%m
 
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
     " nnoremap \ :Ag<SPACE>
   endif
+
+  function! FindFiles(...)
+    return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/:0:0/"')
+  endfunction
+  command! -nargs=+ -complete=file -bar FF cgetexpr FindFiles(<f-args>)|cwindow|redraw!
 endif
 
 "" Directory tree

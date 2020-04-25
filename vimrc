@@ -111,6 +111,10 @@ let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/
 
 command! -nargs=+ FindAll execute "vimgrep /" . <q-args> . "/j **" | execute "cw"
 
+" Spell checking
+command! English execute "setlocal spell spelllang=en_gb"
+command! German execute "setlocal spell spelllang=de_de"
+
 "" Key bindings
 
 " Window movement

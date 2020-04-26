@@ -56,7 +56,10 @@ set splitbelow
 set splitright
 
 " Show completion window when multiple commands match
-set wildmode=longest,list
+set wildmode=longest:full,full
+
+" Expand file search to ** (works best with wildmode enabled)
+set path+=**
 
 " Disable last line that shows current mode
 set noshowmode

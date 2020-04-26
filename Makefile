@@ -21,10 +21,10 @@ directories:
 utilities:
 	@echo "\n---utilities---\n"
 	sudo apt install \
-		acpi ranger feh udiskie lxappearance imagemagick scrot arandr \
+		acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
 		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
 		jq zsh network-manager-openvpn curl git \
-		colordiff xclip silversearcher-ag
+		colordiff xclip silversearcher-ag htop
 
 terminal:
 	@echo "\n---terminal---\n"

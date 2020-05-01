@@ -13,7 +13,7 @@ terminal:
 	cp Xresources ~/.Xresources
 	sudo apt install zsh rxvt-unicode
 	test -d ~/.oh-my-zsh || sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	grep bundler ~/.zshrc || sed -i '/^source \$$ZSH\/oh-my-zsh\.sh/i plugins=(bundler)\n' ~/.zshrc
+	grep 'plugins=(git rvm bundler urltools command-not-found z asdf)' ~/.zshrc || sed -i 's/^plugins=.*/plugins=(git rvm bundler urltools command-not-found z asdf)/' ~/.zshrc
 
 vim:
 	@echo "\n---vim---\n"
@@ -85,5 +85,4 @@ spotify:
 
 asdf:
 	test -d ~/.asdf || git clone https://github.com/asdf-vm/asdf.git --branch v0.7.8 ~/.asdf
-	grep asdf ~/.zshrc || sed -i '/^source \$$ZSH\/oh-my-zsh\.sh/i plugins=(asdf)\n' ~/.zshrc
 	cp asdfrc ~/.asdfrc

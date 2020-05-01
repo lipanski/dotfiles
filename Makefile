@@ -21,7 +21,7 @@ directories:
 utilities:
 	@echo "\n---utilities---\n"
 	sudo apt install \
-		acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
+		python acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
 		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
 		jq zsh network-manager-openvpn curl git \
 		colordiff xclip silversearcher-ag htop
@@ -34,13 +34,15 @@ terminal:
 vim:
 	@echo "\n---vim---\n"
 	sudo apt install neovim
+	rm -rf ~/.vim/bundle/Vundle.vim
+	git clone https://github.com/VundleVim/Vundle.vim.git --branch v0.10.2 ~/.vim/bundle/Vundle.vim
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim/
 	cp config/nvim/init.vim ~/.config/nvim/
 
 playerctl:
 	@echo "\n---playerctl---\n"
-	wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb -O ~/Downloads/playerctl.deb
+	wget https://github.com/acrisci/playerctl/releases/download/v2.1.1/playerctl-2.1.1_amd64.deb -O ~/Downloads/playerctl.deb
 	sudo dpkg -i ~/Downloads/playerctl.deb
 
 i3:
@@ -49,8 +51,8 @@ i3:
 autorandr:
 	@echo "\n---autorandr---\n"
 	rm -rf ~/Downloads/autorandr
-	git clone https://github.com/phillipberndt/autorandr --depth 1 ~/Downloads/autorandr
-	cd ~/Downloads/autorandr && make deb && sudo dpkg -i autorandr-0.1.deb
+	git clone https://github.com/phillipberndt/autorandr --branch 1.10 --depth 1 ~/Downloads/autorandr
+	cd ~/Downloads/autorandr && make deb && sudo dpkg -i autorandr-1.10.deb
 	sudo udevadm control --reload-rules
 
 mail:

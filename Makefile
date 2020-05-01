@@ -1,4 +1,4 @@
-all: utilities terminal vim i3 playerctl autorandr copy mail git
+all: utilities terminal vim i3 autorandr copy mail git
 
 copy: directories
 	@echo "\n---copy---\n"
@@ -22,7 +22,7 @@ utilities:
 	@echo "\n---utilities---\n"
 	sudo apt install \
 		python acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
-		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
+		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl \
 		jq network-manager-openvpn curl git \
 		colordiff xclip silversearcher-ag htop
 
@@ -40,11 +40,6 @@ vim:
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim/
 	cp config/nvim/init.vim ~/.config/nvim/
-
-playerctl:
-	@echo "\n---playerctl---\n"
-	wget https://github.com/acrisci/playerctl/releases/download/v2.1.1/playerctl-2.1.1_amd64.deb -O ~/Downloads/playerctl.deb
-	sudo dpkg -i ~/Downloads/playerctl.deb
 
 i3:
 	sudo apt install i3 i3blocks

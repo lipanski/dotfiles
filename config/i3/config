@@ -138,11 +138,10 @@ bindsym ctrl+F3 exec playerctl next
 
 exec_always setxkbmap fl
 exec_always feh --bg-fill ~/Pictures/Pieter-Bruegel-w16801050.jpg
-exec dropbox start
+exec ~/.dropbox-dist/dropboxd
 exec udiskie -as
 exec nm-applet
 exec --no-startup-id xautolock -time 5 -locker 'power lock' &
-exec xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Two-Finger Scrolling' 1 1
 exec compton -b
 exec system-config-printer-applet
 exec_always mbsync-daemon &

@@ -76,3 +76,7 @@ mail:
 git:
 	cp gitconfig.template ~/.gitconfig.template
 
+thinkpad:
+	sudo mkdir -p /etc/X11/xorg.conf.d/
+	sudo cp etc/X11/xorg.conf.d/90-touchpad.conf /etc/X11/xorg.conf.d/90-touchpad.conf
+

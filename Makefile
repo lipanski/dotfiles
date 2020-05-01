@@ -1,23 +1,5 @@
 all: utilities terminal vim i3 autorandr copy mail git
 
-copy: directories
-	@echo "\n---copy---\n"
-	cp config/i3/config ~/.config/i3/config
-	cp config/i3blocks/config.template ~/.config/i3blocks/config.template
-	cp config/i3blocks/scripts/* ~/.config/i3blocks/scripts/
-	cp config/feh/keys ~/.config/feh/keys
-	cp local/bin/lock ~/.local/bin/lock
-	cp local/bin/susp ~/.local/bin/susp
-	sudo cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl
-
-directories:
-	@echo "\n---directories---\n"
-	mkdir -p ~/Pictures/screen
-	mkdir -p ~/.config/i3
-	mkdir -p ~/.config/i3blocks/scripts
-	mkdir -p ~/.config/feh
-	mkdir -p ~/.local/bin
-
 utilities:
 	@echo "\n---utilities---\n"
 	sudo apt install \
@@ -50,6 +32,24 @@ autorandr:
 	git clone https://github.com/phillipberndt/autorandr --branch 1.10 --depth 1 ~/Downloads/autorandr
 	cd ~/Downloads/autorandr && make deb && sudo dpkg -i autorandr-1.10.deb
 	sudo udevadm control --reload-rules
+
+copy: directories
+	@echo "\n---copy---\n"
+	cp config/i3/config ~/.config/i3/config
+	cp config/i3blocks/config.template ~/.config/i3blocks/config.template
+	cp config/i3blocks/scripts/* ~/.config/i3blocks/scripts/
+	cp config/feh/keys ~/.config/feh/keys
+	cp local/bin/lock ~/.local/bin/lock
+	cp local/bin/susp ~/.local/bin/susp
+	sudo cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl
+
+directories:
+	@echo "\n---directories---\n"
+	mkdir -p ~/Pictures/screen
+	mkdir -p ~/.config/i3
+	mkdir -p ~/.config/i3blocks/scripts
+	mkdir -p ~/.config/feh
+	mkdir -p ~/.local/bin
 
 mail:
 	sudo apt install neomutt isync abook w3m urlscan python-keyring ripmime notmuch

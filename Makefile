@@ -30,7 +30,7 @@ terminal:
 	@echo "\n---terminal---\n"
 	cp Xresources ~/.Xresources
 	sudo apt install zsh rxvt-unicode
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	test -d ~/.oh-my-zsh || sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 vim:
 	@echo "\n---vim---\n"

@@ -141,6 +141,7 @@ exec_always feh --bg-fill ~/Pictures/Pieter-Bruegel-w16801050.jpg
 exec ~/.dropbox-dist/dropboxd
 exec udiskie -as
 exec nm-applet
+exec gnome-screensaver
 exec --no-startup-id xautolock -time 5 -locker 'power lock' &
 exec system-config-printer-applet
 exec_always mbsync-daemon &

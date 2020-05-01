@@ -4,8 +4,8 @@ utilities:
 	@echo "\n---utilities---\n"
 	sudo apt install \
 		python acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
-		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl \
-		jq network-manager-openvpn curl git \
+		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl tldr \
+		jq network-manager-openvpn curl git gnome-screensaver \
 		colordiff xclip silversearcher-ag htop
 
 terminal:
@@ -81,3 +81,8 @@ spotify:
 	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 	sudo apt-get update && sudo apt-get install spotify-client
+
+asdf:
+	test -d ~/.asdf || git clone https://github.com/asdf-vm/asdf.git --branch v0.7.8 ~/.asdf
+	grep asdf ~/.zshrc || sed -i '/^source \$$ZSH\/oh-my-zsh\.sh/i plugins=(asdf)' ~/.zshrc
+	cp asdfrc ~/.asdfrc

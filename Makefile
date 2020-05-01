@@ -67,6 +67,7 @@ mail:
 	touch ~/.mutt/signatures/default
 	cp mutt/template ~/.mutt/template
 	cp mutt/accounts.template ~/.mutt/accounts.template
+	mkdir -p ~/.mail/.notmuch
 	cp notmuch-config.template ~/.notmuch-config.template
 	cp notmuch-tags ~/.notmuch-tags
 	cp local/bin/keyring ~/.local/bin/keyring

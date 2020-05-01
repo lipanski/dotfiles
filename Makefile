@@ -23,13 +23,14 @@ utilities:
 	sudo apt install \
 		python acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
 		xautolock rofi compton xbacklight jmtpfs fonts-font-awesome \
-		jq zsh network-manager-openvpn curl git \
+		jq network-manager-openvpn curl git \
 		colordiff xclip silversearcher-ag htop
 
 terminal:
 	@echo "\n---terminal---\n"
-	sudo apt install rxvt-unicode
 	cp Xresources ~/.Xresources
+	sudo apt install zsh rxvt-unicode
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 vim:
 	@echo "\n---vim---\n"

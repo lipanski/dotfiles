@@ -77,3 +77,7 @@ thinkpad:
 	sudo mkdir -p /etc/X11/xorg.conf.d/
 	sudo cp etc/X11/xorg.conf.d/90-touchpad.conf /etc/X11/xorg.conf.d/90-touchpad.conf
 
+spotify:
+	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+	sudo apt-get update && sudo apt-get install spotify-client

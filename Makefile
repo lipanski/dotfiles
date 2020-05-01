@@ -56,7 +56,7 @@ autorandr:
 	sudo udevadm control --reload-rules
 
 mail:
-	sudo apt install mutt isync abook w3m urlscan python-keyring ripmime notmuch
+	sudo apt install neomutt isync abook w3m urlscan python-keyring ripmime notmuch
 	cp mailcap ~/.mailcap
 	mkdir -p ~/.config/mutt
 	cp config/mutt/colors-solarized-light-256.muttrc ~/.config/mutt/colors-solarized-light-256.muttrc

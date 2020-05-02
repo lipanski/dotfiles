@@ -5,17 +5,20 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'janko-m/vim-test'
 Plugin 'airblade/vim-gitgutter' " Gutter with line modification icons
 Plugin 'airblade/vim-rooter' " Automatically set pwd to git repo root
-Plugin 'pearofducks/ansible-vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'rhysd/vim-crystal'
+Plugin 'janko-m/vim-test'
 Plugin 'morhetz/gruvbox'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tpope/vim-fugitive'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'rhysd/vim-crystal'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-ruby/vim-ruby'
 call vundle#end()
 filetype plugin indent on
 
@@ -69,6 +72,15 @@ set hidden
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" Set leader key
+let mapleader = " "
+
+" Display all buffers inside the tab line when there's only one tab open
+let g:airline#extensions#tabline#enabled = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 "" Whitespace
 

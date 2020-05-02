@@ -14,7 +14,7 @@ terminal:
 	sudo apt install zsh rxvt-unicode
 	test -d ~/.oh-my-zsh || sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	cp oh-my-zsh/custom/personal.zsh ~/.oh-my-zsh/custom/
-	sed -i 's/^plugins=.*/plugins=(git rvm urltools command-not-found z asdf)/' ~/.zshrc
+	sed -i 's/^plugins=.*/plugins=(git urltools command-not-found z asdf)/' ~/.zshrc
 
 vim:
 	@echo "\n---vim---\n"

@@ -1,4 +1,5 @@
-set folder = "~/.mail/email@example.com"
+set folder = "$HOME/.mail/email@example.com"
+set spoolfile = "$HOME/.mail/email@example.com/inbox"
 set mbox_type = "Maildir"
 set mbox = "+inbox"
 set record = "+sent"
@@ -8,7 +9,6 @@ set record = "+sent"
 set copy = no
 set postponed = "+drafts"
 set trash = +bin
-set spoolfile = "~/.mail/email@example.com/inbox"
 set smtp_url = "smtps://email@example.com@smtp.gmail.com:465/"
 set smtp_pass = `keyring get mbsync email@example.com`
 set smtp_authenticators = "login"
@@ -17,8 +17,8 @@ set realname = "EXAMPLE"
 set from = "email@example.com"
 set use_from = yes
 set envelope_from = yes
-set query_command = "notmuch address folder:/florinelul@gmail.com/ from:/%s/"
-# set signature = "~/.mutt/signatures/default"
+set query_command = "notmuch address folder:/email@example.com/ from:/%s/"
+# set signature = "$HOME/.mutt/signatures/default"
 
 # Notmuch
 

@@ -76,6 +76,7 @@ color index color70 color233 "~T" # Tagged messages
 
 # Notmuch
 
+set nm_default_uri = "notmuch://$HOME/.mail"
 set query_command = "notmuch address from:/%s/"
 set query_format = "%5c %t %a %n %?e?(%e)?"
 

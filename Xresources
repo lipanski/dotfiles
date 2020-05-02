@@ -8,7 +8,7 @@ URxvt.scrollBar_right: false
 ! URxvt.iso14755: false
 
 ! Plugins
-URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.perl-ext-common: default,matcher
 
 ! Open URLs inside the browser on click
 URxvt.matcher.button: 1

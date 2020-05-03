@@ -37,6 +37,7 @@ autorandr:
 
 copy: directories
 	@echo "\n---copy---\n"
+	cp -r wallpapers/ ~/Pictures
 	cp config/i3/config ~/.config/i3/config
 	cp config/i3blocks/config.template ~/.config/i3blocks/config.template
 	cp config/i3blocks/scripts/* ~/.config/i3blocks/scripts/

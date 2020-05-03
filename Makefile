@@ -80,6 +80,13 @@ thinkpad:
 	sudo mkdir -p /etc/X11/xorg.conf.d/
 	sudo cp etc/X11/xorg.conf.d/90-touchpad.conf /etc/X11/xorg.conf.d/90-touchpad.conf
 
+nuc:
+	sed -i 's/^font .*/font pango:monospace 14/g' ~/.config/i3/config
+	sed -i '/^exec.*mbsync-daemon/d' ~/.config/i3/config
+	sed -i '/^exec.*xautolock/d' ~/.config/i3/config
+	sed -i 's/pieter-bruegel-hunters-in-the-snow\.jpg/pieter-the-younger-treasure-hunt.jpg/' ~/.config/i3/config
+	sed -i 's/^URxvt\.font.*size=11.*/URxvt.font: xft:DejaVuSansMono:size=14:antialias=true/g' ~/.Xresources
+
 spotify:
 	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list

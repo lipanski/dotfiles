@@ -5,6 +5,7 @@ alias cr="crystal"
 alias o="xdg-open"
 alias k="kubectl"
 alias weather="curl wttr.in/Berlin"
+alias vim=nvim
 
 export ANSIBLE_RETRY_FILES_ENABLED=0
 

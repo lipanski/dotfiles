@@ -7,5 +7,6 @@ alias k="kubectl"
 alias weather="curl wttr.in/Berlin"
 alias vim=nvim
 
+export EDITOR=nvim
 export ANSIBLE_RETRY_FILES_ENABLED=0
 

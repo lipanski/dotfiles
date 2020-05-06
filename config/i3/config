@@ -154,4 +154,4 @@ hide_edge_borders both
 # Workspace assignments
 
 # assign [class="Spotify"] $workspace3
-for_window [class="Spotify"] move to workspace $workspace3
+# for_window [class="Spotify"] move to workspace $workspace3

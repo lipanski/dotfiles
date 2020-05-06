@@ -9,6 +9,7 @@ Plugin 'airblade/vim-gitgutter' " Gutter with line modification icons
 Plugin 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plugin 'bling/vim-bufferline'
 Plugin 'janko-m/vim-test'
+Plugin 'junegunn/goyo.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -114,7 +115,7 @@ if executable("ag")
   function! FindFiles(...)
     return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/:0:0/"')
   endfunction
-  command! -nargs=+ -complete=file -bar FF cgetexpr FindFiles(<f-args>)|cwindow|redraw!
+  command! -nargs=+ -complete=file -bar Agf cgetexpr FindFiles(<f-args>)|cwindow|redraw!
 endif
 
 "" Directory tree
@@ -131,6 +132,9 @@ let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/
 "" Custom commands
 
 command! -nargs=+ FindAll execute "vimgrep /" . <q-args> . "/j **" | execute "cw"
+
+" Remove current file and close buffer
+command! Rm execute ":call delete(expand('%')) | bd!"
 
 " Spell checking
 command! English execute "setlocal spell spelllang=en_gb"

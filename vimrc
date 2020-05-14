@@ -96,7 +96,7 @@ let g:strip_whitespace_confirm = 1
 
 "" Search
 
-set hlsearch
+set nohlsearch
 set incsearch
 set ignorecase
 set smartcase

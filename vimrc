@@ -1,27 +1,30 @@
 "" Plugins
-"" Requires `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-"" Call `:PluginInstall` every time you add a new plugin
+"" Call `:PlugInstall` every time you add a new plugin
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'airblade/vim-gitgutter' " Gutter with line modification icons
-Plugin 'airblade/vim-rooter' " Automatically set pwd to git repo root
-Plugin 'bling/vim-bufferline'
-Plugin 'janko-m/vim-test'
-Plugin 'junegunn/goyo.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'pearofducks/ansible-vim'
-Plugin 'rhysd/vim-crystal'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
-call vundle#end()
-filetype plugin indent on
+"" Install vim-plug if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'airblade/vim-gitgutter' " Gutter with line modification icons
+Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
+Plug 'bling/vim-bufferline'
+Plug 'janko-m/vim-test'
+Plug 'junegunn/goyo.vim'
+Plug 'morhetz/gruvbox'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'pearofducks/ansible-vim'
+Plug 'rhysd/vim-crystal'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
+call plug#end()
 
 "" General
 

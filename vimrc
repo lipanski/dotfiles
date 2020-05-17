@@ -162,7 +162,7 @@ if executable("ag")
   endif
 
   function! FindFiles(...)
-    return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/:0:0/"')
+    return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/|1|  /"')
   endfunction
   command! -nargs=+ -complete=file -bar Agf cgetexpr FindFiles(<f-args>)|cwindow|redraw!
   nnoremap <leader>f :Agf<SPACE>

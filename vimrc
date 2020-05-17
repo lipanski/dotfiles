@@ -11,18 +11,22 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'airblade/vim-gitgutter' " Gutter with line modification icons
 Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
+Plug 'ajh17/VimCompletesMe'
 Plug 'bling/vim-bufferline'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
+Plug 'natebosch/vim-lsc'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
 Plug 'rhysd/vim-crystal'
 Plug 'scrooloose/nerdcommenter'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
+Plug 'tpope/vim-endwise', { 'for': ['crystal', 'ruby'] } " Automatically insert `end` in code blocks
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired' " Navigation shortcuts: [q / ]q quickfix list, [b / ]b buffer list, [p / ]p paste above or below line, [<Space> / ]<Space> add a blank line
 Plug 'vim-ruby/vim-ruby'
 call plug#end()
 
@@ -77,6 +81,12 @@ set hidden
 " Always use vertical diffs
 set diffopt+=vertical
 
+" Always show the sign column (used by vim-gitgutter)
+set signcolumn=yes
+
+" Update various signs in the sign column or elsewhere (mainly used by vim-gitgutter)
+set updatetime=300
+
 " Set leader key
 let mapleader = " "
 
@@ -104,6 +114,42 @@ set incsearch
 set ignorecase
 set smartcase
 
+"" Code completion
+
+" Install with `gem install solargraph` (globally)
+if executable("solargraph")
+  let g:lsc_server_commands = {
+  \  'ruby': {
+  \    'command': 'solargraph stdio',
+  \    'log_level': -1,
+  \    'suppress_stderr': v:true,
+  \  }
+  \}
+endif
+
+let g:lsc_auto_map = {
+ \  'GoToDefinition': 'gd',
+ \  'FindReferences': 'gr',
+ \  'Rename': 'gR',
+ \  'ShowHover': 'K',
+ \  'FindCodeActions': 'ga',
+ \  'Completion': 'omnifunc',
+ \}
+
+let g:lsc_enable_autocomplete  = v:true
+let g:lsc_enable_diagnostics   = v:false
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level          = 'off'
+
+" Completion for parenthesis, curly braces etc.
+let g:pear_tree_repeatable_expand = 0
+let g:pear_tree_smart_backspace   = 1
+let g:pear_tree_smart_closers     = 1
+let g:pear_tree_smart_openers     = 1
+
+" Never auto-select entries when displaying the autocomplete menu
+set completeopt=menu,menuone,noinsert,noselect
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   " Use Ag over Grep
@@ -112,13 +158,14 @@ if executable("ag")
 
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    " nnoremap \ :Ag<SPACE>
+    nnoremap <leader>/ :Ag<SPACE>
   endif
 
   function! FindFiles(...)
     return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/:0:0/"')
   endfunction
   command! -nargs=+ -complete=file -bar Agf cgetexpr FindFiles(<f-args>)|cwindow|redraw!
+  nnoremap <leader>f :Agf<SPACE>
 endif
 
 "" Directory tree
@@ -134,10 +181,10 @@ let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/
 
 "" Custom commands
 
-command! -nargs=+ FindAll execute "vimgrep /" . <q-args> . "/j **" | execute "cw"
+" command! -nargs=+ FindAll execute "vimgrep /" . <q-args> . "/j **" | execute "cw"
 
 " Remove current file and close buffer
-command! Rm execute ":call delete(expand('%')) | bd!"
+" command! Rm execute ":call delete(expand('%')) | bd!"
 
 " Spell checking
 command! English execute "setlocal spell spelllang=en_gb"

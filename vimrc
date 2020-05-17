@@ -8,7 +8,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
+call plug#begin('~/.vim/bundle')
 Plug 'airblade/vim-gitgutter' " Gutter with line modification icons
 Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plug 'bling/vim-bufferline'

@@ -103,6 +103,8 @@ macro index,pager O "<shell-escape>mbsync -a<enter>" "run mbsync to sync all mai
 
 macro index i "<change-folder>=inbox<Enter>" "go to your inbox"
 
+bind index N toggle-new
+
 bind index j next-entry
 bind index k previous-entry
 bind index J next-thread
@@ -113,7 +115,6 @@ bind index / search
 # '?' is used for search-opposite
 # bind index \Ch help
 bind index n search-next
-bind index N search-opposite
 
 bind index g noop
 bind index gg first-entry
@@ -133,6 +134,8 @@ bind index h limit
 
 ### Keys: Pager
 
+bind index N toggle-new
+
 bind pager j next-line
 bind pager k previous-line
 
@@ -144,7 +147,6 @@ bind pager / search
 # '?' is used for search-opposite
 # bind pager \Ch help
 bind pager n search-next
-bind pager N search-opposite
 
 bind pager g noop
 bind pager gg top

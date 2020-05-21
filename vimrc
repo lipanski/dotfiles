@@ -158,14 +158,15 @@ if executable("ag")
 
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap <leader>/ :Ag<SPACE>
+    nnoremap // :Ag<SPACE>
+    vnoremap // y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
   endif
 
   function! FindFiles(...)
     return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/|1|  /"')
   endfunction
   command! -nargs=+ -complete=file -bar Agf cgetexpr FindFiles(<f-args>)|cwindow|redraw!
-  nnoremap <leader>f :Agf<SPACE>
+  nnoremap /f :Agf<SPACE>
 endif
 
 "" Directory tree

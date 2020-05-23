@@ -156,10 +156,10 @@ set completeopt=menu,menuone,noinsert,noselect
 let g:fzf_preview_window = ''
 
 " Key bindings for fzf and ag
-nnoremap <silent> <leader>f :GFiles<CR>
-nnoremap <silent> <leader>g :Ag<CR>
-vnoremap <silent> <leader>g y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <leader>f :GFiles<CR>
+nnoremap <leader>g :Ag<SPACE>
+vnoremap <leader>g y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
+nnoremap <leader>b :Buffers<CR>
 
 " Use fzf with ag in raw mode to allow passing arguments - e.g. `:Ag --ruby 'some search keyword' /some/search/path`
 " See https://github.com/junegunn/fzf.vim/issues/27

@@ -14,6 +14,8 @@ Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plug 'ajh17/VimCompletesMe'
 Plug 'bling/vim-bufferline'
 Plug 'janko-m/vim-test'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
 Plug 'natebosch/vim-lsc'
@@ -150,23 +152,36 @@ let g:pear_tree_smart_openers     = 1
 " Never auto-select entries when displaying the autocomplete menu
 set completeopt=menu,menuone,noinsert,noselect
 
+" Disalbe fzf preview window
+let g:fzf_preview_window = ''
+
+" Key bindings for fzf and ag
+nnoremap <silent> <leader>f :GFiles<CR>
+nnoremap <silent> <leader>g :Ag<CR>
+vnoremap <silent> <leader>g y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
+" Use fzf with ag in raw mode to allow passing arguments - e.g. `:Ag --ruby 'some search keyword' /some/search/path`
+" See https://github.com/junegunn/fzf.vim/issues/27
+command! -bang -nargs=+ -complete=file Ag call fzf#vim#ag_raw(<q-args>, <bang>0)
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   " Use Ag over Grep
   set grepprg=ag\ --vimgrep
-  set grepformat=%f:%l:%c%m
+  set grepformat=%f:%l:%c:%m
 
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap // :Ag<SPACE>
-    vnoremap // y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
-  endif
+  " if !exists(":Ag")
+    " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    " nnoremap // :Ag<SPACE>
+    " vnoremap // y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
+  " endif
 
-  function! FindFiles(...)
-    return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/|1|  /"')
-  endfunction
-  command! -nargs=+ -complete=file -bar Agf cgetexpr FindFiles(<f-args>)|cwindow|redraw!
-  nnoremap /f :Agf<SPACE>
+  " function! FindFiles(...)
+    " return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/|1|  /"')
+  " endfunction
+  " command! -nargs=+ -complete=file -bar Agf cgetexpr FindFiles(<f-args>)|cwindow|redraw!
+  " nnoremap /f :Agf<SPACE>
 endif
 
 "" Directory tree

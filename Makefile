@@ -11,6 +11,8 @@ utilities:
 terminal:
 	@echo "\n---terminal---\n"
 	cp Xresources ~/.Xresources
+	cp Xresources.light ~/.Xresources.light
+	cp Xresources.present ~/.Xresources.present
 	sudo apt install zsh rxvt-unicode
 	test -d ~/.oh-my-zsh || sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	cp oh-my-zsh/custom/personal.zsh ~/.oh-my-zsh/custom/

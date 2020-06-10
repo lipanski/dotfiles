@@ -114,8 +114,8 @@ bindsym $mod+x exec power lock
 bindsym $mod+Shift+x exec power suspend
 bindsym --release Shift+Print exec scrot -s ~/Pictures/screen/screenshot-$(date +%F_%H-%M-%S).png
 bindsym Print exec scrot ~/Pictures/screen/screenshot-$(date +%F_%H-%M-%S).png
-bindsym $mod+t move workspace to output DP1
-bindsym $mod+b move workspace to output eDP1
+bindsym $mod+t move workspace to output up
+bindsym $mod+b move workspace to output down
 
 # Pulse Audio controls
 

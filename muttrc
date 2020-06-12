@@ -24,10 +24,13 @@ set charset = "utf-8"
 set send_charset = utf-8
 set tmpdir = "~/.mutt/tmp"
 set sort = reverse-threads
-set sort_aux = date-received
+set sort_aux = last-date-received
 set date_format = "%d.%m.%y %H:%M"
 set index_format = "%Z %D %-15.15L (%?l?%4l&%4c?) %s"
 set menu_scroll
+
+# Group threads only if the In-Reply-To or References fields are set (otherwise mutt groups by subject)
+set strict_threads = yes
 
 # Use the date received rather than the date sent to thread messages
 set thread_received = yes

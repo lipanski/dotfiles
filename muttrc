@@ -24,7 +24,7 @@ set charset = "utf-8"
 set send_charset = utf-8
 set tmpdir = "~/.mutt/tmp"
 set sort = reverse-threads
-set sort_aux = last-date-received
+set sort_aux = date-received
 set date_format = "%d.%m.%y %H:%M"
 set index_format = "%Z %D %-15.15L (%?l?%4l&%4c?) %s"
 set menu_scroll
@@ -67,7 +67,7 @@ set mime_forward_rest=yes
 
 # Parse HTML emails (see ~/.mailcap entry for text/html)
 auto_view text/html
-alternative_order text/plain text/enriched text/html
+alternative_order text/html text/plain text/enriched
 
 # Theme
 source ~/.config/mutt/colors-solarized-light-256.muttrc

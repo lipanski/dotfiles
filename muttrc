@@ -32,6 +32,9 @@ set menu_scroll
 # Group threads only if the In-Reply-To or References fields are set (otherwise mutt groups by subject)
 set strict_threads = yes
 
+# By default mutt groups messages together if they have the same Message-Id but this can break the thread sorting
+set duplicate_threads = no
+
 # Use the date received rather than the date sent to thread messages
 set thread_received = yes
 

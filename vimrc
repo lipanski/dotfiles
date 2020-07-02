@@ -27,6 +27,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
 Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' " Navigation shortcuts: [q / ]q quickfix list, [b / ]b buffer list, [p / ]p paste above or below line, [<Space> / ]<Space> add a blank line
 Plug 'vim-ruby/vim-ruby'

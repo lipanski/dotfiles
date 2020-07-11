@@ -31,6 +31,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' " Navigation shortcuts: [q / ]q quickfix list, [b / ]b buffer list, [p / ]p paste above or below line, [<Space> / ]<Space> add a blank line
 Plug 'vim-ruby/vim-ruby'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 "" General
@@ -206,6 +207,10 @@ let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/
 " Spell checking
 command! English execute "setlocal spell spelllang=en_gb"
 command! German execute "setlocal spell spelllang=de_de"
+
+"" Wiki
+
+let g:vimwiki_list = [{'path': '~/Dropbox/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 "" Key bindings
 

@@ -5,22 +5,21 @@
   co = checkout
   ci = commit
   cf = commit --fixup
-  cfm = "!git commit --fixup $(git rev-list master.. --reverse | head -n1)"
+  cfm = '!git commit --fixup $(git rev-list master.. --reverse | head -n1)'
   cs = commit --squash
-  csm = "!git commit --squash $(git rev-list master.. --reverse | head -n1)"
+  csm = '!git commit --squash $(git rev-list master.. --reverse | head -n1)'
   rb = rebase
   rbi = rebase -i
   st = status
   br = branch --sort=committerdate
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  changelog = log --pretty=format:\"%h %ad | %s [%an]\" --date=short --no-merges
-  type = cat-file -t
-  dump = cat-file -p
+  hist = log --pretty=format:'%C(Cyan)%h %C(Yellow)%ad %C(Reset)%s%d %C(Green)[%an]' --graph --date=short
   cp-theirs = cherry-pick --strategy=recursive -X theirs
   show-conflicts = diff --name-only --diff-filter=U
 [push]
   default = simple
   followTags = true
+[pull]
+  rebase = true # Rebase before pull
 [core]
   mergeoptions = --no-edit
   editor = vim
@@ -32,3 +31,4 @@
   showUntrackedFiles = all
 [rebase]
   autoSquash = true
+  autoStash = true # Stash before rebase

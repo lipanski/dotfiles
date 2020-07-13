@@ -15,6 +15,7 @@
   hist = log --pretty=format:'%C(Cyan)%h %C(Yellow)%ad %C(Reset)%s%d %C(Green)[%an]' --graph --date=short
   cp-theirs = cherry-pick --strategy=recursive -X theirs
   show-conflicts = diff --name-only --diff-filter=U
+  refresh = fetch origin master:master
 [push]
   default = simple
   followTags = true
@@ -23,8 +24,6 @@
 [core]
   mergeoptions = --no-edit
   editor = vim
-[hub]
-  protocol = https
 [merge]
   conflictstyle = diff3
 [status]

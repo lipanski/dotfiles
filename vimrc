@@ -9,6 +9,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/bundle')
+Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter' " Gutter with line modification icons
 Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plug 'ajh17/VimCompletesMe'
@@ -186,6 +187,9 @@ if executable("ag")
   " nnoremap /f :Agf<SPACE>
 endif
 
+" Snippets
+let g:UltiSnipsExpandTrigger="<c-s>"
+
 "" Directory tree
 
 let g:netrw_liststyle = 3
@@ -211,6 +215,9 @@ command! German execute "setlocal spell spelllang=de_de"
 "" Wiki
 
 let g:vimwiki_list = [{'path': '~/Dropbox/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Sitck to the vimwiki_list, don't create temporary wikis within the project directory
+let g:vimwiki_global_ext = 0
 
 "" Key bindings
 

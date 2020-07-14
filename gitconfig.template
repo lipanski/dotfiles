@@ -5,9 +5,9 @@
   co = checkout
   ci = commit
   cf = commit --fixup
-  cfm = '!git commit --fixup $(git rev-list master.. --reverse | head -n1)'
+  cfm = "!git commit --fixup $(git rev-list master.. --reverse | head -n1)"
   cs = commit --squash
-  csm = '!git commit --squash $(git rev-list master.. --reverse | head -n1)'
+  csm = "!git commit --squash $(git rev-list master.. --reverse | head -n1)"
   rb = rebase
   rbi = rebase -i
   st = status

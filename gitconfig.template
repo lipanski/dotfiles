@@ -20,7 +20,7 @@
   default = simple
   followTags = true
 [pull]
-  rebase = true # Rebase before pull
+  rebase = true # Rebase on pull
 [core]
   mergeoptions = --no-edit
   editor = vim

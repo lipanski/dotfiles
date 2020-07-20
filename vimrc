@@ -116,8 +116,10 @@ let g:strip_whitespace_confirm = 1
 
 set nohlsearch
 set incsearch
-set ignorecase
-set smartcase
+
+" All searches are case insensitive except when search contains one upper case letter
+" set ignorecase
+" set smartcase
 
 "" Code completion
 

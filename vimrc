@@ -25,6 +25,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
 Plug 'rhysd/vim-crystal'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
 Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
 Plug 'tpope/vim-fugitive'
@@ -202,6 +203,15 @@ let g:netrw_sort_options = "i"
 
 " Hide gitignored files and other common patterns
 let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/'
+
+"" NERDTree
+
+" Toggle NERDTree with Ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+
+" Open NERDTree automatically when vim starts if no file was specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "" Custom commands
 

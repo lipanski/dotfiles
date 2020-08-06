@@ -164,7 +164,7 @@ let g:fzf_preview_window = ''
 " Key bindings for fzf and ag
 nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>g :Ag<SPACE>
-vnoremap <leader>g y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
+vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " Use fzf with ag in raw mode to allow passing arguments - e.g. `:Ag --ruby 'some search keyword' /some/search/path`

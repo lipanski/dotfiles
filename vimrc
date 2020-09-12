@@ -103,6 +103,9 @@ let g:bufferline_active_buffer_right = ''
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" Set ESC key in terminal mode
+tnoremap <C-[> <C-\><C-n>
+
 "" Whitespace
 
 set tabstop=2

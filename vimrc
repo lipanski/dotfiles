@@ -103,8 +103,11 @@ let g:bufferline_active_buffer_right = ''
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
-" Set ESC key in terminal mode
-tnoremap <C-[> <C-\><C-n>
+" Remap insert mode escape in :term while leaving fzf to its default
+if has("nvim")
+  au TermOpen * tnoremap <buffer> <C-[> <C-\><C-n>
+  au FileType fzf tunmap <buffer> <Esc>
+endif
 
 "" Whitespace
 

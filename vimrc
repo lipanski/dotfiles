@@ -51,6 +51,9 @@ set background=dark
 " Always display the status line
 set laststatus=2
 
+" Customize the status line
+set statusline=%<%f\ %#PmenuSel#%h%m%r%{FugitiveStatusline()}%#CursorColumn#%=%y\ \ %l,%c\ \ %P
+
 set noswapfile
 
 " Save file on buffer switch

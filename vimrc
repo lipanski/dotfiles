@@ -22,6 +22,7 @@ Plug 'morhetz/gruvbox'
 Plug 'natebosch/vim-lsc'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nelstrom/vim-visual-star-search'
 Plug 'pearofducks/ansible-vim'
 Plug 'rhysd/vim-crystal'
 Plug 'scrooloose/nerdcommenter'
@@ -52,7 +53,8 @@ set background=dark
 set laststatus=2
 
 " Customize the status line
-set statusline=%<%f\ %#PmenuSel#%h%m%r%{FugitiveStatusline()}%#CursorColumn#%=%y\ \ %l,%c\ \ %P
+" List available colours with `:so $VIMRUNTIME/syntax/hitest.vim`
+set statusline=%<%f\ \ %#TermCursor#%h%m%r%{FugitiveStatusline()}%#StatusLine#%=%y\ \ %l,%c\ \ %P
 
 set noswapfile
 

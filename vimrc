@@ -215,6 +215,11 @@ let g:netrw_sort_options = "i"
 " Hide gitignored files and other common patterns
 let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/'
 
+"" Mail
+
+autocmd FileType mail setlocal fo-=t wrap linebreak nolist
+autocmd FileType mail DisableStripWhitespaceOnSave
+
 "" NERDTree
 
 " Toggle NERDTree with Ctrl-n

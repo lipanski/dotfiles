@@ -41,6 +41,11 @@ set thread_received = yes
 # Don't show the "+" when wrapping lines
 set markers = no
 
+# Tell clients to avoid wrapping lines that end in whitespace
+# Works hand in hand with `autocmd FileType mail setlocal formatoptions+=w` in vim
+# Doesn't work in Gmail or Outlook though...
+# set text_flowed = yes
+
 # Fetch mailboxes dynamically (on connection)
 set imap_check_subscribed
 

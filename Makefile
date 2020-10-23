@@ -43,7 +43,7 @@ copy: directories
 	cp config/i3/config ~/.config/i3/config
 	cp config/i3blocks/config.template ~/.config/i3blocks/config.template
 	cp config/i3blocks/scripts/* ~/.config/i3blocks/scripts/
-	cp config/feh/keys ~/.config/feh/keys
+	cp -r config/feh/ ~/.config/feh
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
 	sudo cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl

@@ -29,6 +29,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
 Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
+Plug 'tpope/vim-eunuch' " Better support for some Unix commands - :Delete, :Move, :Rename (relative), :Mkdir, :SudoWrite
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
@@ -257,16 +258,13 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Window resize
-" nnoremap <C-Right> :vertical resize +2<CR>
-" nnoremap <C-Left> :vertical resize -2<CR>
-" nnoremap <C-Up> :resize +2<CR>
-" nnoremap <C-Down> :resize -2<CR>
-
 " vim-test bindings
 nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
+
+" Clear all buffers
+nmap <leader>bd :bufdo :bd<CR>
 

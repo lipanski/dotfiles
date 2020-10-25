@@ -6,6 +6,7 @@ alias o="xdg-open"
 alias k="kubectl"
 alias weather="curl wttr.in/Berlin"
 alias vim=nvim
+alias vimwiki="vim -c VimwikiIndex"
 
 export EDITOR=nvim
 export ANSIBLE_RETRY_FILES_ENABLED=0

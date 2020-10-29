@@ -21,8 +21,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
 Plug 'natebosch/vim-lsc'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
 Plug 'rhysd/vim-crystal'
 Plug 'scrooloose/nerdcommenter'
@@ -112,7 +112,7 @@ let g:NERDSpaceDelims = 1
 " Remap insert mode escape in :term while leaving fzf to its default
 if has("nvim")
   au TermOpen * tnoremap <buffer> <C-[> <C-\><C-n>
-  au FileType fzf tunmap <buffer> <Esc>
+  au FileType fzf silent! tunmap <buffer> <Esc>
 endif
 
 "" Whitespace

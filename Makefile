@@ -20,7 +20,7 @@ terminal:
 
 vim:
 	@echo "\n---vim---\n"
-	sudo apt install neovim
+	sudo apt install neovim universal-ctags
 	rm -rf ~/.vim/bundle/Vundle.vim
 	git clone https://github.com/VundleVim/Vundle.vim.git --branch v0.10.2 ~/.vim/bundle/Vundle.vim
 	cp vimrc ~/.vimrc

@@ -18,6 +18,7 @@ Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'natebosch/vim-lsc'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -267,4 +268,7 @@ nmap <silent> <leader>tg :TestVisit<CR>
 
 " Clear all buffers
 nmap <leader>bd :bufdo :bd<CR>
+
+" Toggle Tagbar
+nmap <C-t> :TagbarToggle<CR>
 

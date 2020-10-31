@@ -18,6 +18,7 @@ Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'ludovicchabant/vim-gutentags' " Manage ctags updates automatically
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'natebosch/vim-lsc'
@@ -135,6 +136,11 @@ set incsearch
 " set ignorecase
 " set smartcase
 
+"" CTags
+
+let g:gutentags_ctags_exclude = ['log', 'node_modules', 'bower_components', 'vendor', 'public']
+let g:gutentags_file_list_command = 'git ls-files'
+
 "" Code completion
 
 " Install with `gem install solargraph` (globally)
@@ -173,12 +179,6 @@ set completeopt=menu,menuone,noinsert,noselect
 
 " Disalbe fzf preview window
 let g:fzf_preview_window = ''
-
-" Key bindings for fzf and ag
-nnoremap <leader>f :GFiles<CR>
-nnoremap <leader>g :Ag<SPACE>
-vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
-nnoremap <leader>b :Buffers<CR>
 
 " Use fzf with ag in raw mode to allow passing arguments - e.g. `:Ag --ruby 'some search keyword' /some/search/path`
 " See https://github.com/junegunn/fzf.vim/issues/27
@@ -266,8 +266,15 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
+" Key bindings for fzf and ag
+nnoremap <leader>f :GFiles<CR>
+nnoremap <leader>g :Ag<SPACE>
+vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <C-p> :Tags<CR>
+
 " Clear all buffers
-nmap <leader>bd :bufdo :bd<CR>
+nmap <leader>c :bufdo :bd<CR>
 
 " Toggle Tagbar
 nmap <C-t> :TagbarToggle<CR>

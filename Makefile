@@ -44,6 +44,7 @@ copy: directories
 	cp config/i3blocks/config.template ~/.config/i3blocks/config.template
 	cp config/i3blocks/scripts/* ~/.config/i3blocks/scripts/
 	cp -r config/feh/ ~/.config/feh
+	cp -r config/git/ ~/.config/git
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
 	sudo cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl
@@ -54,6 +55,7 @@ directories:
 	mkdir -p ~/.config/i3
 	mkdir -p ~/.config/i3blocks/scripts
 	mkdir -p ~/.config/feh
+	mkdir -p ~/.config/git
 	mkdir -p ~/.local/bin
 
 mail:

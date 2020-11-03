@@ -138,8 +138,9 @@ set incsearch
 
 "" CTags
 
-let g:gutentags_ctags_exclude = ['log', 'node_modules', 'bower_components', 'vendor', 'public']
+let g:gutentags_ctags_exclude = ['*.json', '*.md', 'log/*', 'node_modules/*', 'bower_components/*', 'vendor/*', 'public/*']
 let g:gutentags_file_list_command = 'git ls-files'
+let g:gutentags_cache_dir = '~/.tags'
 
 "" Code completion
 
@@ -271,11 +272,15 @@ nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>g :Ag<SPACE>
 vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <C-p> :Tags<CR>
+nnoremap <leader>p :Tags<CR>
 
 " Clear all buffers
 nmap <leader>c :bufdo :bd<CR>
 
 " Toggle Tagbar
-nmap <C-t> :TagbarToggle<CR>
+nmap <C-p> :TagbarToggle<CR>
+
+" Terminal shortcuts
+nmap <leader>sh :term<CR>i<CR>
+nmap <leader>rc :term<CR>i<CR>bundle exec rails c<CR>
 

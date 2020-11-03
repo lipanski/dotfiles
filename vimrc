@@ -13,6 +13,7 @@ Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter' " Gutter with line modification icons
 Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plug 'ajh17/VimCompletesMe'
+Plug 'andrewradev/splitjoin.vim'
 Plug 'bling/vim-bufferline'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

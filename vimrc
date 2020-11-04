@@ -28,6 +28,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
 Plug 'rhysd/vim-crystal'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
@@ -253,6 +254,10 @@ nnoremap <Leader>j :VimwikiIndex<CR>:VimwikiGoto journal<CR>
 
 " Sitck to the vimwiki_list, don't create temporary wikis within the project directory
 let g:vimwiki_global_ext = 0
+
+"" Rust
+
+let g:rustfmt_autosave = 1
 
 "" Key bindings
 

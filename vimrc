@@ -22,7 +22,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'ludovicchabant/vim-gutentags' " Manage ctags updates automatically
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
-Plug 'natebosch/vim-lsc'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'ntpeters/vim-better-whitespace'
@@ -147,31 +146,6 @@ let g:gutentags_cache_dir = '~/.tags'
 let g:tagbar_sort = 0
 
 "" Code completion
-
-" Install with `gem install solargraph` (globally)
-if executable("solargraph")
-  let g:lsc_server_commands = {
-  \  'ruby': {
-  \    'command': 'solargraph stdio',
-  \    'log_level': -1,
-  \    'suppress_stderr': v:true,
-  \  }
-  \}
-endif
-
-let g:lsc_auto_map = {
- \  'GoToDefinition': 'gd',
- \  'FindReferences': 'gr',
- \  'Rename': 'gR',
- \  'ShowHover': 'K',
- \  'FindCodeActions': 'ga',
- \  'Completion': 'omnifunc',
- \}
-
-let g:lsc_enable_autocomplete  = v:true
-let g:lsc_enable_diagnostics   = v:false
-let g:lsc_reference_highlights = v:false
-let g:lsc_trace_level          = 'off'
 
 " Completion for parenthesis, curly braces etc.
 let g:pear_tree_repeatable_expand = 0

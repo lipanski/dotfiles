@@ -140,7 +140,7 @@ set incsearch
 
 "" CTags
 
-let g:gutentags_ctags_exclude = ['*.json', '*.md', '*.svg', '*.xml', '*/log/*', '*/node_modules/*', '*/bower_components/*', '*/vendor/*', '*/public/*']
+let g:gutentags_ctags_exclude = ['*.js', '*.json', '*.md', '*.svg', '*.xml', '*/log/*', '*/node_modules/*', '*/bower_components/*', '*/vendor/*', '*/public/*']
 let g:gutentags_file_list_command = 'git ls-files'
 let g:gutentags_cache_dir = '~/.tags'
 let g:tagbar_sort = 0
@@ -225,7 +225,7 @@ command! German execute "setlocal spell spelllang=de_de"
 
 let g:vimwiki_list = [{'path': '~/Dropbox/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-nnoremap <Leader>j :VimwikiIndex<CR>:VimwikiGoto journal<CR>
+nnoremap <Leader>d :VimwikiIndex<CR>:VimwikiGoto journal<CR>
 
 " Sitck to the vimwiki_list, don't create temporary wikis within the project directory
 let g:vimwiki_global_ext = 0
@@ -254,13 +254,13 @@ nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>g :Ag<SPACE>
 vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>p :Tags<CR>
+nnoremap <leader>j :Tags<CR>
 
 " Clear all buffers
 nmap <leader>c :bufdo :bd<CR>
 
 " Toggle Tagbar
-nmap <C-p> :TagbarToggle<CR>
+nmap <C-j> :TagbarToggle<CR>
 
 " Terminal shortcuts
 nmap <leader>sh :term<CR>i<CR>

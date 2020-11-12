@@ -32,6 +32,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
 Plug 'tpope/vim-eunuch' " Better support for some Unix commands - :Delete, :Move, :Rename (relative), :Mkdir, :SudoWrite
 Plug 'tpope/vim-fugitive'

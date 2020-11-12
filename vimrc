@@ -141,7 +141,7 @@ set incsearch
 
 "" CTags
 
-let g:gutentags_ctags_exclude = ['*.json', '*.md', 'log/*', 'node_modules/*', 'bower_components/*', 'vendor/*', 'public/*']
+let g:gutentags_ctags_exclude = ['*.json', '*.md', '*.svg', '*.xml', '*/log/*', '*/node_modules/*', '*/bower_components/*', '*/vendor/*', '*/public/*']
 let g:gutentags_file_list_command = 'git ls-files'
 let g:gutentags_cache_dir = '~/.tags'
 let g:tagbar_sort = 0

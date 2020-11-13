@@ -140,10 +140,31 @@ set incsearch
 
 "" CTags
 
-let g:gutentags_ctags_exclude = ['*.js', '*.json', '*.md', '*.svg', '*.xml', '*/log/*', '*/node_modules/*', '*/bower_components/*', '*/vendor/*', '*/public/*']
+let g:gutentags_ctags_exclude = ['*.js', '*.json', '*.md', '*.svg', '*.xml', '*/bin/*', '*/log/*', '*/node_modules/*', '*/bower_components/*', '*/vendor/*', '*/public/*']
 let g:gutentags_file_list_command = 'git ls-files'
 let g:gutentags_cache_dir = '~/.tags'
 let g:tagbar_sort = 0
+
+" See https://github.com/ludovicchabant/vim-gutentags/issues/289
+function! GutentagsWorkaround() abort
+  if !exists('b:gutentags_files') || !get(g:, 'gutentags_ctags_auto_set_tags', 1)
+    return
+  endif
+
+  for tag_file_path in values(b:gutentags_files)
+    if stridx(&tags, tag_file_path) == -1
+      echom 'Fixing tag path: ' . tag_file_path
+      " spaces must be literally escaped in tags path
+      let l:literal_space_escaped = substitute(fnameescape(tag_file_path), '\ ', '\\\\ ', 'g')
+      execute 'setlocal tags^=' . l:literal_space_escaped
+    endif
+  endfor
+endfunction
+
+augroup GutentagsWorkaround
+  autocmd!
+  au FileType * call GutentagsWorkaround()
+augroup END
 
 "" Code completion
 
@@ -254,15 +275,15 @@ nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>g :Ag<SPACE>
 vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>j :Tags<CR>
+nnoremap <leader>p :Tags<CR>
 
 " Clear all buffers
 nmap <leader>c :bufdo :bd<CR>
 
 " Toggle Tagbar
-nmap <C-j> :TagbarToggle<CR>
+nmap <C-p> :TagbarToggle<CR>
 
 " Terminal shortcuts
-nmap <leader>sh :term<CR>i<CR>
+nmap <leader>s :term<CR>i<CR>
 nmap <leader>rc :term<CR>i<CR>bundle exec rails c<CR>
 

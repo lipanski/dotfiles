@@ -140,31 +140,18 @@ set incsearch
 
 "" CTags
 
+let g:gutentags_generate_on_empty_buffer = 1
 let g:gutentags_ctags_exclude = ['*.js', '*.json', '*.md', '*.svg', '*.xml', '*/bin/*', '*/log/*', '*/node_modules/*', '*/bower_components/*', '*/vendor/*', '*/public/*']
 let g:gutentags_file_list_command = 'git ls-files'
 let g:gutentags_cache_dir = '~/.tags'
 let g:tagbar_sort = 0
 
-" See https://github.com/ludovicchabant/vim-gutentags/issues/289
-function! GutentagsWorkaround() abort
-  if !exists('b:gutentags_files') || !get(g:, 'gutentags_ctags_auto_set_tags', 1)
-    return
-  endif
+"" Ruby
 
-  for tag_file_path in values(b:gutentags_files)
-    if stridx(&tags, tag_file_path) == -1
-      echom 'Fixing tag path: ' . tag_file_path
-      " spaces must be literally escaped in tags path
-      let l:literal_space_escaped = substitute(fnameescape(tag_file_path), '\ ', '\\\\ ', 'g')
-      execute 'setlocal tags^=' . l:literal_space_escaped
-    endif
-  endfor
-endfunction
-
-augroup GutentagsWorkaround
-  autocmd!
-  au FileType * call GutentagsWorkaround()
-augroup END
+let g:rubycomplete_rails = 1
+let g:rubycomplete_use_bundler = 1
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_hanging_elements = 0
 
 "" Code completion
 
@@ -189,18 +176,6 @@ if executable("ag")
   " Use Ag over Grep
   set grepprg=ag\ --vimgrep
   set grepformat=%f:%l:%c:%m
-
-  " if !exists(":Ag")
-    " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    " nnoremap // :Ag<SPACE>
-    " vnoremap // y:Ag<SPACE><C-R>=escape(@",'/\')<CR><CR>
-  " endif
-
-  " function! FindFiles(...)
-    " return system('ag --vimgrep -g ' . join(a:000, ' ') . ' | sed -e "s/$/|1|  /"')
-  " endfunction
-  " command! -nargs=+ -complete=file -bar Agf cgetexpr FindFiles(<f-args>)|cwindow|redraw!
-  " nnoremap /f :Agf<SPACE>
 endif
 
 " Snippets
@@ -227,16 +202,7 @@ autocmd FileType mail DisableStripWhitespaceOnSave
 " Toggle NERDTree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 
-" Open NERDTree automatically when vim starts if no file was specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 "" Custom commands
-
-" command! -nargs=+ FindAll execute "vimgrep /" . <q-args> . "/j **" | execute "cw"
-
-" Remove current file and close buffer
-" command! Rm execute ":call delete(expand('%')) | bd!"
 
 " Spell checking
 command! English execute "setlocal spell spelllang=en_gb"
@@ -275,7 +241,8 @@ nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>g :Ag<SPACE>
 vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>p :Tags<CR>
+nnoremap <leader>j :Tags<CR>
+nnoremap <leader>k :BTags<CR>
 
 " Clear all buffers
 nmap <leader>c :bufdo :bd<CR>

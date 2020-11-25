@@ -59,7 +59,7 @@ set laststatus=2
 
 " Customize the status line
 " List available colours with `:so $VIMRUNTIME/syntax/hitest.vim`
-set statusline=%<%f\ \ %#TermCursor#%h%m%r%{FugitiveStatusline()}%#StatusLine#%=%y\ \ %l,%c\ \ %P
+set statusline=%<%f\ \ %#TermCursor#%h%m%r[%{FugitiveHead()}]%#StatusLine#%=%y\ \ %l,%c\ \ %P
 
 set noswapfile
 

@@ -252,6 +252,6 @@ nmap <leader>c :bufdo :bd<CR>
 nmap <C-p> :TagbarToggle<CR>
 
 " Terminal shortcuts
-nmap <leader>s :term<CR>i<CR>
-nmap <leader>rc :term<CR>i<CR>bundle exec rails c<CR>
+nmap <leader>s :term<CR>i
+nmap <leader>rc :term<CR>ibundle exec rails c<CR>
 

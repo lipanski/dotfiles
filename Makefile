@@ -26,6 +26,7 @@ vim:
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim/
 	cp config/nvim/init.vim ~/.config/nvim/
+	cp ctags ~/.ctags
 
 i3:
 	sudo apt install i3 i3blocks

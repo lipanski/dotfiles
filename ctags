@@ -1,0 +1,11 @@
+--langdef=crystal
+--langmap=crystal:.cr
+--regex-crystal=/^\s*module\s+([A-Z][a-zA-Z0-9_:]*)/\1/m,module/
+--regex-crystal=/^\s*(abstract|private)?\s?class\s+([A-Z][a-zA-Z0-9_:]*)/\2/c,class/
+--regex-crystal=/^\s*(abstract|private)?\s?struct\s+([A-Z][a-zA-Z0-9_:]*)/\2/s,struct/
+--regex-crystal=/^\s*(abstract|private|protected)?\s?def\s+(self\.)?([a-z_][a-zA-Z0-9_?!=]*)/\3/d,def/
+--regex-crystal=/^\s*macro\s+([a-z_][a-zA-Z0-9_?!]*)/\1/f,macro/
+--langdef=markdown
+--langmap=markdown:.md
+--regex-markdown=/^#+[ \t](.*$)/\1/h,heading,headings/
+

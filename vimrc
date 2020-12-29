@@ -230,6 +230,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Open file under cursor in a vertical split by default
+nmap <C-w>f <C-w>vgf
+nmap <C-w>F <C-w>vgF
+
 " vim-test bindings
 nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>

@@ -9,8 +9,7 @@ case "$1" in
         lock
         ;;
     try-lock)
-        ACTIVE_WINDOW_ID=`xprop -root _NET_ACTIVE_WINDOW | sed 's/.*# //'`
-        xprop -id $ACTIVE_WINDOW_ID | grep -v _NET_WM_STATE_FULLSCREEN && lock
+        xprop -root _NET_ACTIVE_WINDOW | sed 's/.*# //' | xargs xprop -id | grep _NET_WM_STATE_FULLSCREEN || lock
         ;;
     logout)
         i3-msg exit

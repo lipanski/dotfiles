@@ -252,8 +252,8 @@ nnoremap <leader>k :BTags<CR>
 " Clear all buffers
 nmap <leader>c :bufdo :bd<CR>
 
-" Toggle Tagbar
-nmap <C-p> :TagbarToggle<CR>
+" Open vim-fugitive
+nmap <C-g> :G<CR>
 
 " Terminal shortcuts
 nmap <leader>s :term<CR>i

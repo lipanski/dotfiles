@@ -19,6 +19,7 @@ Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags' " Manage ctags updates automatically
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
@@ -26,10 +27,12 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'rhysd/vim-crystal'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
@@ -249,8 +252,11 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>j :Tags<CR>
 nnoremap <leader>k :BTags<CR>
 
+" fzf-checkout
+nnoremap <leader>c :GBranches --locals<CR>
+
 " Clear all buffers
-nmap <leader>c :bufdo :bd<CR>
+nmap <leader>l :bufdo :bd<CR>
 
 " Open vim-fugitive
 nmap <C-g> :G<CR>

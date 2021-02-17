@@ -16,6 +16,7 @@
   cp-theirs = cherry-pick --strategy=recursive -X theirs
   show-conflicts = diff --name-only --diff-filter=U
   rf = fetch origin master:master
+  remove-merged-branches = "!for branch in `git branch --merged | grep -v 'master'`; do git branch -d $branch; done"
 [push]
   default = simple
   followTags = true

@@ -17,7 +17,7 @@ set realname = "EXAMPLE"
 set from = "email@example.com"
 set use_from = yes
 set envelope_from = yes
-set query_command = "notmuch address folder:/email@example.com/ from:/%s/"
+set query_command = "notmuch address --deduplicate=address folder:/email@example.com/ from:/%s/"
 # set signature = "$HOME/.mutt/signatures/default"
 
 # Notmuch

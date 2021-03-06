@@ -72,9 +72,8 @@ set include = yes
 # Don't wait after switching between folders
 set sleep_time = 0
 
-# Forward attachments (instead of quoting only the text)
-set mime_forward=yes
-set mime_forward_rest=yes
+# Ask when forward attachments (default to yes)
+set mime_forward=ask-yes
 
 # Parse HTML emails (see ~/.mailcap entry for text/html)
 auto_view text/html

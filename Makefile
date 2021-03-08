@@ -6,7 +6,7 @@ utilities:
 		python acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
 		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl tldr \
 		jq network-manager-openvpn curl git gnome-screensaver \
-		colordiff xclip silversearcher-ag htop pulsemixer zeal
+		colordiff xclip silversearcher-ag htop pulsemixer zeal okular
 
 terminal:
 	@echo "\n---terminal---\n"

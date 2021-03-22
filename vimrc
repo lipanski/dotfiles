@@ -34,6 +34,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
 Plug 'tpope/vim-eunuch' " Better support for some Unix commands - :Delete, :Move, :Rename (relative), :Mkdir, :SudoWrite
@@ -264,4 +265,3 @@ nmap <C-g> :G<CR>
 " Terminal shortcuts
 nmap <leader>s :term<CR>i
 nmap <leader>rc :term<CR>ibundle exec rails c<CR>
-

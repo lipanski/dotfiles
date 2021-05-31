@@ -1,0 +1,13 @@
+#!/bin/sh
+
+protected_branches="refs/heads/master refs/heads/main refs/heads/production"
+
+while read local_ref local_sha remote_ref remote_sha
+do
+  if echo "$protected_branches" | grep -w -q "$remote_ref"; then
+    echo >&2 "### Pushing to this remote branch is disabled from the pre-push hook ###"
+    exit 1
+  fi
+done
+
+exit 0

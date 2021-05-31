@@ -35,7 +35,3 @@
 [rebase]
   autoSquash = true
   autoStash = true # Stash before rebase
-# Prevent push to master for particular repos
-[includeIf "gitdir:/xxx/"]
-[branch "master"]
-  pushRemote = nopush

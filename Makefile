@@ -100,3 +100,11 @@ spotify:
 asdf:
 	test -d ~/.asdf || git clone https://github.com/asdf-vm/asdf.git --branch v0.7.8 ~/.asdf
 	cp asdfrc ~/.asdfrc
+
+calendar:
+	sudo apt install vdirsyncer khal
+	mkdir -p ~/.config/vdirsyncer
+	cp config/vdirsyncer/config.template ~/.config/vdirsyncer/config.template
+	mkdir -p ~/.config/khal
+	cp config/khal/config.template ~/.config/khal/config.template
+	mkdir -p ~/.calendar/personal

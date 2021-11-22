@@ -1,0 +1,21 @@
+[calendars]
+
+[[personal_local]]
+path = ~/.calendar/personal/*
+type = discover
+color = dark green
+
+# [view]
+# dynamic_days = True
+
+[default]
+highlight_event_days = True
+show_all_days = True
+timedelta = 7d
+
+[locale]
+timeformat = %H:%M
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M

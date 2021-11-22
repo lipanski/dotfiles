@@ -1,0 +1,17 @@
+[general]
+status_path = "~/.calendar/status"
+
+[pair personal]
+a = "personal_local"
+b = "personal_remote"
+collections = null
+
+[storage personal_local]
+type = "filesystem"
+path = "~/.calendar/personal/default/"
+fileext = ".ics"
+
+[storage personal_remote]
+type = "http"
+url = "[INSERT ICS URL HERE]"
+

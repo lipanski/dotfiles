@@ -226,6 +226,9 @@ let g:vimwiki_global_ext = 0
 
 let g:rustfmt_autosave = 1
 
+autocmd FileType rust nnoremap <C-b> :Cbuild<CR>
+" autocmd FileType rust nnoremap <C-r> :Crun<CR>
+
 "" Key bindings
 
 " Window movement

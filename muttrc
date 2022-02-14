@@ -92,6 +92,13 @@ set query_format = "%5c %t %a %n %?e?(%e)?"
 
 bind index,pager + entire-thread
 
+# GPG
+
+set crypt_use_gpgme = yes
+set pgp_default_key="306EC32B0F6179F4B8446A1565DEBB4660FE3010"
+set crypt_autosign = no
+set crypt_autoencrypt = no
+
 ### Keys: Click URLs with urlscan
 
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"

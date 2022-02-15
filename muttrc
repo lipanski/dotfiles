@@ -98,6 +98,7 @@ set crypt_use_gpgme = yes
 set pgp_default_key="306EC32B0F6179F4B8446A1565DEBB4660FE3010"
 set crypt_autosign = no
 set crypt_autoencrypt = no
+set pgp_auto_decode = yes # Decode traditional (inline) PGP messages
 
 ### Keys: Click URLs with urlscan
 

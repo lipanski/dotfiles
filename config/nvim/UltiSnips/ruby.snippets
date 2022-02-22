@@ -1,0 +1,40 @@
+snippet test
+require "test_helper"
+
+class ${1:Example}Test < ActiveSupport::TestCase
+  test "${2:it works}" do
+
+	end
+end
+
+endsnippet
+
+snippet testc
+require "test_helper"
+
+class ${1:Example}Test < ActionDispatch::IntegrationTest
+	test "${2:it works}" do
+
+	end
+end
+
+endsnippet
+
+snippet model
+class ${1:Example} < ApplicationRecord
+end
+
+endsnippet
+
+snippet concern
+module ${1:Example}
+  extend ActiveSupport::Concern
+end
+
+endsnippet
+
+snippet controller
+class ${1:Example}Controller < ApplicationController
+end
+
+endsnippet

@@ -26,6 +26,7 @@ vim:
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim/
 	cp config/nvim/init.vim ~/.config/nvim/
+	cp -r config/nvim/UltiSnips/ ~/.config/nvim/UltiSnips
 	cp ctags ~/.ctags
 
 i3:

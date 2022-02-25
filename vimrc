@@ -224,6 +224,27 @@ let g:vimwiki_global_ext = 0
 
 "" Rust
 
+" Fold comments
+function! RustFold(lnum)
+    if getline(a:lnum) =~? '\v^\s*$'
+        return '-1'
+    endif
+
+    let this_indent = indent(a:lnum) / &shiftwidth
+
+    if getline(a:lnum) =~? '^\s*///.*$'
+        return this_indent
+    endif
+
+    if getline(a:lnum) =~? '^\s*//!.*$'
+        return '1'
+    endif
+
+    return '0'
+endfunction
+
+autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold(v:lnum)
+
 let g:rustfmt_autosave = 1
 
 autocmd FileType rust nnoremap <C-b> :Cbuild<CR>

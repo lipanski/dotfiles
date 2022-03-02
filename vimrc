@@ -248,7 +248,7 @@ autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold(v:lnum)
 let g:rustfmt_autosave = 1
 
 autocmd FileType rust nnoremap <C-b> :Cbuild<CR>
-autocmd FileType rust nnoremap <C-x> :Crun<CR>
+autocmd FileType rust nnoremap <C-x> :Cruntarget<CR>
 
 "" Key bindings
 

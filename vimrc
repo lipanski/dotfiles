@@ -218,6 +218,7 @@ command! German execute "setlocal spell spelllang=de_de"
 let g:vimwiki_list = [{'path': '~/Dropbox/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 nnoremap <Leader>d :VimwikiIndex<CR>:VimwikiGoto journal<CR>
+nnoremap <Leader>p :VimwikiIndex<CR>:VimwikiGoto personal<CR>
 
 " Sitck to the vimwiki_list, don't create temporary wikis within the project directory
 let g:vimwiki_global_ext = 0

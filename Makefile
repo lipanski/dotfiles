@@ -49,6 +49,7 @@ copy: directories
 	cp -r config/git/ ~/.config/git
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
+	cp local/bin/power ~/.local/bin/power
 	sudo cp usr/share/X11/xkb/symbols/fl /usr/share/X11/xkb/symbols/fl
 
 directories:

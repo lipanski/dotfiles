@@ -40,10 +40,19 @@ Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
 Plug 'tpope/vim-eunuch' " Better support for some Unix commands - :Delete, :Move, :Rename (relative), :Mkdir, :SudoWrite
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' " Navigation shortcuts: [q / ]q quickfix list, [b / ]b buffer list, [p / ]p paste above or below line, [<Space> / ]<Space> add a blank line
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
+
+Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
+Plug 'hrsh7th/nvim-cmp' " Completion
+Plug 'hrsh7th/cmp-nvim-lsp' " Completion
+Plug 'hrsh7th/cmp-path' " Completion
+Plug 'hrsh7th/cmp-buffer' " Completion
+Plug 'hrsh7th/vim-vsnip' " Snippet engine
+Plug 'simrat39/rust-tools.nvim' " Enable some features of rust-analyzer, such as inlay hints and more
 call plug#end()
 
 "" General
@@ -151,6 +160,68 @@ let g:gutentags_file_list_command = 'git ls-files'
 let g:gutentags_cache_dir = '~/.tags'
 let g:tagbar_sort = 0
 
+"" LSP
+
+lua <<EOF
+  local nvim_lsp = require'lspconfig'
+
+  local opts = {
+      tools = {
+          autoSetHints = false,
+          hover_with_actions = true,
+          inlay_hints = {
+              show_parameter_hints = false,
+              parameter_hints_prefix = "",
+              other_hints_prefix = "",
+          },
+      },
+  }
+
+  require('rust-tools').setup(opts)
+EOF
+
+lua <<EOF
+  local cmp = require'cmp'
+
+  cmp.setup({
+    -- Enable LSP snippets
+    snippet = {
+      expand = function(args)
+          vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
+    mapping = {
+      ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+      ['<Tab>'] = cmp.mapping.select_next_item(),
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      })
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' },
+      { name = 'path' },
+      { name = 'buffer' },
+    },
+    preselect = false,
+    completion = {
+      autocomplete = false,
+    }
+  })
+EOF
+
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+
 "" Ruby
 
 let g:rubycomplete_rails = 1
@@ -169,7 +240,7 @@ let g:pear_tree_smart_openers     = 1
 " Never auto-select entries when displaying the autocomplete menu
 set completeopt=menu,menuone,noinsert,noselect
 
-" Disalbe fzf preview window
+" Disable fzf preview window
 let g:fzf_preview_window = ''
 
 " Use fzf with ag in raw mode to allow passing arguments - e.g. `:Ag --ruby 'some search keyword' /some/search/path`
@@ -249,7 +320,7 @@ autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold(v:lnum)
 let g:rustfmt_autosave = 1
 
 autocmd FileType rust nnoremap <C-b> :Cbuild<CR>
-autocmd FileType rust nnoremap <C-x> :Cruntarget<CR>
+autocmd FileType rust nnoremap <C-x> :RustRunnables<CR>
 
 "" Key bindings
 

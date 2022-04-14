@@ -45,8 +45,8 @@ copy: directories
 	cp config/i3/config ~/.config/i3/config
 	cp config/i3blocks/config.template ~/.config/i3blocks/config.template
 	cp config/i3blocks/scripts/* ~/.config/i3blocks/scripts/
-	cp -r config/feh/ ~/.config/feh
-	cp -r config/git/ ~/.config/git
+	cp -r config/feh/* ~/.config/feh
+	cp -r config/git/* ~/.config/git
 	cp local/bin/lock ~/.local/bin/lock
 	cp local/bin/susp ~/.local/bin/susp
 	cp local/bin/power ~/.local/bin/power

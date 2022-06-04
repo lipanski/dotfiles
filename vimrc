@@ -47,7 +47,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 
 Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
-Plug 'hrsh7th/nvim-cmp' " Completion
+Plug 'hrsh7th/nvim-cmp', { 'commit': 'bba6fb67fdafc0af7c5454058dfbabc2182741f4' } " Completion
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion
 Plug 'hrsh7th/cmp-path' " Completion
 Plug 'hrsh7th/cmp-buffer' " Completion

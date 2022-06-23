@@ -1,4 +1,4 @@
-all: utilities terminal vim i3 autorandr copy mail git
+all: utilities terminal vim rust i3 autorandr copy mail git
 
 utilities:
 	@echo "\n---utilities---\n"
@@ -20,6 +20,8 @@ terminal:
 
 vim:
 	@echo "\n---vim---\n"
+	sudo add-apt-repository ppa:neovim-ppa/stable
+	sudo apt update
 	sudo apt install neovim universal-ctags
 	rm -rf ~/.vim/bundle/Vundle.vim
 	git clone https://github.com/VundleVim/Vundle.vim.git --branch v0.10.2 ~/.vim/bundle/Vundle.vim
@@ -28,6 +30,10 @@ vim:
 	cp config/nvim/init.vim ~/.config/nvim/
 	cp -r config/nvim/UltiSnips/ ~/.config/nvim/UltiSnips
 	cp ctags ~/.ctags
+
+rust:
+	curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+	chmod +x ~/.local/bin/rust-analyzer
 
 i3:
 	sudo apt install i3 i3blocks

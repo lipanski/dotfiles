@@ -1,4 +1,4 @@
-all: utilities terminal vim rust i3 autorandr copy mail git
+all: utilities brightness terminal vim rust i3 autorandr copy mail git
 
 utilities:
 	@echo "\n---utilities---\n"
@@ -7,6 +7,11 @@ utilities:
 		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl tldr \
 		jq network-manager-openvpn curl git gnome-screensaver encfs \
 		colordiff xclip silversearcher-ag htop pulsemixer zeal okular
+
+brightness:
+	@echo "\n---brightness---\n"
+	sudo apt install brightnessctl
+	sudo chmod +s /usr/bin/brightnessctl
 
 terminal:
 	@echo "\n---terminal---\n"

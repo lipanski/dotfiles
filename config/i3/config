@@ -125,8 +125,8 @@ bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute
 
 # Sreen brightness controls
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # Media player controls
 
@@ -136,6 +136,7 @@ bindsym ctrl+F3 exec playerctl next
 
 # Startup
 
+exec compton
 exec_always setxkbmap fl
 exec_always feh --bg-fill ~/Pictures/wallpapers/pieter-bruegel-hunters-in-the-snow.jpg
 exec ~/.dropbox-dist/dropboxd

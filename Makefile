@@ -6,7 +6,8 @@ utilities:
 		python acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
 		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl tldr \
 		jq network-manager-openvpn curl git gnome-screensaver encfs \
-		colordiff xclip silversearcher-ag htop pulsemixer zeal okular
+		colordiff xclip silversearcher-ag htop pulsemixer zeal okular \
+		blueman
 
 brightness:
 	@echo "\n---brightness---\n"

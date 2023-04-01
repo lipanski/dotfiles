@@ -9,6 +9,11 @@ utilities:
 		colordiff xclip silversearcher-ag htop pulsemixer zeal okular \
 		blueman
 
+extra:
+	@echo "\n---extra---\n"
+	sudo apt install \
+		pinta
+
 brightness:
 	@echo "\n---brightness---\n"
 	sudo apt install brightnessctl

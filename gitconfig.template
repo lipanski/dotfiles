@@ -19,6 +19,7 @@
   show-conflicts = diff --name-only --diff-filter=U
   rf = fetch origin master:master
   remove-merged-branches = "!for branch in `git branch --merged | grep -v 'master'`; do git branch -d $branch; done"
+  su = submodule update --init --recursive
 [push]
   default = current # Push to a remote branch of the same name
   followTags = true

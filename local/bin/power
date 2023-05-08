@@ -1,7 +1,7 @@
 #!/bin/sh
 
 lock() {
-    gnome-screensaver-command -l
+    i3lock -eti ~/Pictures/wallpapers/pieter-bruegel-hunters-in-the-snow-bw.png
 }
 
 case "$1" in

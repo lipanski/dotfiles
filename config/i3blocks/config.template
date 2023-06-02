@@ -35,6 +35,10 @@ label=♪
 instance=Master
 interval=1
 
+[command]
+command=watson status -p | sed 's/[a-z]/\U&/g;s/\.//g'
+interval=30
+
 [toggle_screen_lock]
 command=~/.config/i3blocks/scripts/toggle_screen_lock
 interval=120

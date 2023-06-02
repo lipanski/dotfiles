@@ -1,4 +1,4 @@
-all: utilities brightness terminal vim rust i3 autorandr copy mail git
+all: utilities brightness terminal vim rust i3 autorandr copy mail git time
 
 utilities:
 	@echo "\n---utilities---\n"
@@ -99,6 +99,10 @@ mail:
 
 git:
 	cp gitconfig.template ~/.gitconfig.template
+
+time:
+	@echo "\n---time---\n"
+	pip install --user td-watson
 
 thinkpad:
 	sudo mkdir -p /etc/X11/xorg.conf.d/

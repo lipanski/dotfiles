@@ -36,7 +36,7 @@ instance=Master
 interval=1
 
 [command]
-command=watson status -p | sed 's/[a-z]/\U&/g;s/\.//g'
+command=watson status -p | sed -e 's/no project started./NO PROJECT/ig' -e t -e 's/.*/PROJECT: \U&/g'
 interval=30
 
 [toggle_screen_lock]

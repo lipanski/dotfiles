@@ -35,8 +35,8 @@ label=♪
 instance=Master
 interval=1
 
-[command]
-command=watson status -p | sed -e 's/no project started./NO PROJECT/ig' -e t -e 's/.*/PROJECT: \U&/g'
+[toggle_work]
+command=~/.config/i3blocks/scripts/toggle_work
 interval=30
 
 [toggle_screen_lock]

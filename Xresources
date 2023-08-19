@@ -2,7 +2,7 @@ URxvt.loginShell: true
 URxvt.saveLines: 10000
 URxvt.font: xft:DejaVu Sans Mono:size=11,xft:Symbola:size=11
 URxvt.lineSpace: 0
-URxvt.letterSpace: 0
+URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 

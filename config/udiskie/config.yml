@@ -1,0 +1,8 @@
+# See https://github.com/coldfix/udiskie/blob/08bdbff56be1e6ce352d49b2dd67a7da68290e7f/doc/udiskie.8.txt
+device_config:
+  - id_type: exfat
+    options: [fmask=0117,dmask=0007]
+  - id_type: ntfs
+    options: [fmask=0117,dmask=0007]
+  - is_loop: true
+    ignore: true

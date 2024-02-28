@@ -4,5 +4,7 @@ device_config:
     options: [fmask=0117,dmask=0007]
   - id_type: ntfs
     options: [fmask=0117,dmask=0007]
+  - id_type: ntfs3
+    options: [fmask=0117,dmask=0007]
   - is_loop: true
     ignore: true

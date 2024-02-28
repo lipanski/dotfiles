@@ -11,7 +11,7 @@ URxvt.perl-ext-common: default,matcher
 
 ! Open URLs inside the browser on click
 URxvt.matcher.button: 1
-URxvt.url-launcher: google-chrome
+URxvt.url-launcher: firefox
 
 ! Replicate PRIMARY cut buffers into CLIPBOARD
 URxvt.clipboard.autocopy: true

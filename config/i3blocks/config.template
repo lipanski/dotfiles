@@ -35,8 +35,8 @@ label=♪
 instance=Master
 interval=1
 
-[toggle_work]
-command=~/.config/i3blocks/scripts/toggle_work
+[toggle_work_something]
+command=~/.config/i3blocks/scripts/toggle_work PROJECT_NAME LABEL
 interval=30
 
 [toggle_screen_lock]

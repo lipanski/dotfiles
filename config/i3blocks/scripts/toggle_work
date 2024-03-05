@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 
+PROJECT="$1"
+LABEL="$2"
 if [[ -n $BLOCK_BUTTON ]]
 then
-  if watson status -p | grep "No project started" > /dev/null
+  if watson status -p | grep -v "$PROJECT" > /dev/null
   then
-    watson start work > /dev/null
+    watson start "$PROJECT" > /dev/null
   else
     watson stop > /dev/null
   fi
 fi
 
-PROJECT=$(watson status -p | sed -e 's/.*/\U&/g')
-if echo "$PROJECT" | grep "NO PROJECT" > /dev/null
+if watson status -p | grep -v "$PROJECT" > /dev/null
 then
-  echo "NO PROJECT"
+  echo "$LABEL"
 else
-  echo "<span color='Yellow'>PROJECT: $PROJECT</span>"
+  echo "<span color='Yellow'>$LABEL</span>"
 fi

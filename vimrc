@@ -34,6 +34,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
+Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise' " Automatically insert `end` in code blocks
@@ -48,9 +49,11 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
 Plug 'hrsh7th/nvim-cmp', { 'commit': 'bba6fb67fdafc0af7c5454058dfbabc2182741f4' } " Completion
-Plug 'hrsh7th/cmp-nvim-lsp' " Completion
-Plug 'hrsh7th/cmp-path' " Completion
 Plug 'hrsh7th/cmp-buffer' " Completion
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp' " Completion
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help' " Signature help
+Plug 'hrsh7th/cmp-path' " Completion
 Plug 'hrsh7th/vim-vsnip' " Snippet engine
 Plug 'simrat39/rust-tools.nvim' " Enable some features of rust-analyzer, such as inlay hints and more
 call plug#end()
@@ -202,10 +205,12 @@ lua <<EOF
       })
     },
     sources = {
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' },
+      { name = 'nvim_lsp', keyword_length = 3 },
+      { name = 'nvim_lua', keyword_length = 2 },
+      { name = 'nvim_lsp_signature_help'},
+      { name = 'vsnip', keyword_length = 2 },
       { name = 'path' },
-      { name = 'buffer' },
+      { name = 'buffer', keyword_length = 2 },
     },
     preselect = false,
     completion = {

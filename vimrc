@@ -15,6 +15,7 @@ Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plug 'ajh17/VimCompletesMe'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'bling/vim-bufferline'
+Plug 'hashivim/vim-terraform'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -48,7 +49,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 
 Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
-Plug 'hrsh7th/nvim-cmp', { 'commit': 'bba6fb67fdafc0af7c5454058dfbabc2182741f4' } " Completion
+Plug 'hrsh7th/nvim-cmp' " Completion
 Plug 'hrsh7th/cmp-buffer' " Completion
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion

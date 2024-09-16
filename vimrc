@@ -51,9 +51,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
 Plug 'hrsh7th/nvim-cmp' " Completion
 Plug 'hrsh7th/cmp-buffer' " Completion
-Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion
-Plug 'hrsh7th/cmp-nvim-lsp-signature-help' " Signature help
 Plug 'hrsh7th/cmp-path' " Completion
 Plug 'hrsh7th/vim-vsnip' " Snippet engine
 Plug 'simrat39/rust-tools.nvim' " Enable some features of rust-analyzer, such as inlay hints and more
@@ -172,6 +170,7 @@ lua <<EOF
   local opts = {
       tools = {
           autoSetHints = false,
+          hover_with_actions = true,
           inlay_hints = {
               show_parameter_hints = false,
               parameter_hints_prefix = "",
@@ -206,12 +205,10 @@ lua <<EOF
       })
     },
     sources = {
-      { name = 'nvim_lsp', keyword_length = 3 },
-      { name = 'nvim_lua', keyword_length = 2 },
-      { name = 'nvim_lsp_signature_help'},
-      { name = 'vsnip', keyword_length = 2 },
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' },
       { name = 'path' },
-      { name = 'buffer', keyword_length = 2 },
+      { name = 'buffer' },
     },
     preselect = false,
     completion = {

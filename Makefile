@@ -33,9 +33,9 @@ vim:
 	@echo "\n---vim---\n"
 	sudo add-apt-repository ppa:neovim-ppa/stable
 	sudo apt update
-	sudo apt install neovim universal-ctags
-	rm -rf ~/.vim/bundle/Vundle.vim
-	git clone https://github.com/VundleVim/Vundle.vim.git --branch v0.10.2 ~/.vim/bundle/Vundle.vim
+	sudo apt install universal-ctags
+	sudo wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage -O /usr/local/bin/nvim
+	sudo chmod +x /usr/local/bin/nvim
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim/
 	cp config/nvim/init.vim ~/.config/nvim/

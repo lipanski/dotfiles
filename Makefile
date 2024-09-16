@@ -133,3 +133,7 @@ calendar:
 	mkdir -p ~/.config/khal
 	cp config/khal/config.template ~/.config/khal/config.template
 	mkdir -p ~/.calendar/personal
+
+clipboard:
+	wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -O ~/.local/bin/greenclip
+	chmod +x ~/.local/bin/greenclip

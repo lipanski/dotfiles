@@ -108,7 +108,7 @@ bar {
 
 # Key bindings
 
-bindsym $mod+space exec rofi -show run
+bindsym $mod+space exec rofi -modi "run,clipboard:greenclip print,window,ssh" -show run
 bindsym $mod+q kill
 bindsym $mod+x exec power lock
 bindsym $mod+Shift+x exec power suspend
@@ -147,6 +147,7 @@ exec --no-startup-id xautolock -time 5 -locker 'power try-lock' &
 exec system-config-printer-applet
 exec_always mbsync-daemon &
 exec --no-startup-id urxvtd -q -o -f
+# exec greenclip daemon
 
 # Borders
 

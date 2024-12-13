@@ -104,7 +104,8 @@ git:
 
 time:
 	@echo "\n---time---\n"
-	pip install --user td-watson
+	pipx install td-watson
+	ln -s ~/.local/pipx/venvs/td-watson/bin/watson ~/.local/bin/watson
 
 thinkpad:
 	sudo mkdir -p /etc/X11/xorg.conf.d/

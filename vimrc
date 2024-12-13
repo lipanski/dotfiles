@@ -170,7 +170,6 @@ lua <<EOF
   local opts = {
       tools = {
           autoSetHints = false,
-          hover_with_actions = true,
           inlay_hints = {
               show_parameter_hints = false,
               parameter_hints_prefix = "",

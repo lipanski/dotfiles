@@ -81,7 +81,8 @@ directories:
 	mkdir -p ~/.local/bin
 
 mail:
-	sudo apt install neomutt isync abook w3m urlscan python-keyring ripmime notmuch
+	sudo apt install neomutt isync abook w3m urlscan ripmime notmuch
+	pipx install keyring
 	cp mailcap ~/.mailcap
 	mkdir -p ~/.config/mutt
 	cp config/mutt/colors-solarized-light-256.muttrc ~/.config/mutt/colors-solarized-light-256.muttrc
@@ -95,7 +96,6 @@ mail:
 	mkdir -p ~/.mail/.notmuch
 	cp notmuch-config.template ~/.notmuch-config.template
 	cp notmuch-tags ~/.notmuch-tags
-	cp local/bin/keyring ~/.local/bin/keyring
 	cp local/bin/mbsync-daemon ~/.local/bin/mbsync-daemon
 	mkdir -p ~/.abook
 

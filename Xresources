@@ -5,6 +5,8 @@ URxvt.lineSpace: 0
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
+! Fix urxvt starting with the cursor in the middle
+URxvt.geometry: 400x400
 
 ! Plugins
 URxvt.perl-ext-common: default,matcher

@@ -48,6 +48,9 @@ Plug 'tpope/vim-unimpaired' " Navigation shortcuts: [q / ]q quickfix list, [b / 
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'frankroeder/parrot.nvim'
+
 Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
 Plug 'hrsh7th/nvim-cmp' " Completion
 Plug 'hrsh7th/cmp-buffer' " Completion
@@ -322,6 +325,18 @@ let g:rustfmt_autosave = 1
 
 autocmd FileType rust nnoremap <C-b> :Cbuild<CR>
 autocmd FileType rust nnoremap <C-x> :RustRunnables<CR>
+
+"" Claude
+
+lua <<EOF
+  require("parrot").setup({
+    providers = {
+      anthropic = {
+        api_key = os.getenv("CLAUDE_API_KEY"),
+      },
+    },
+  })
+EOF
 
 "" Key bindings
 

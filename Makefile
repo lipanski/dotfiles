@@ -31,10 +31,8 @@ terminal:
 
 vim:
 	@echo "\n---vim---\n"
-	sudo add-apt-repository ppa:neovim-ppa/stable
-	sudo apt update
 	sudo apt install universal-ctags
-	sudo wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage -O /usr/local/bin/nvim
+	sudo wget https://github.com/neovim/neovim/releases/download/v0.10.3/nvim.appimage -O /usr/local/bin/nvim
 	sudo chmod +x /usr/local/bin/nvim
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim/

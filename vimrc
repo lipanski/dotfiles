@@ -249,12 +249,12 @@ let g:fzf_preview_window = ''
 
 " Use fzf with ag in raw mode to allow passing arguments - e.g. `:Ag --ruby 'some search keyword' /some/search/path`
 " See https://github.com/junegunn/fzf.vim/issues/27
-command! -bang -nargs=+ -complete=file Ag call fzf#vim#ag_raw(<q-args>, <bang>0)
+command! -bang -nargs=+ -complete=file Ag call fzf#vim#ag_raw('--hidden ' . <q-args>, <bang>0)
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   " Use Ag over Grep
-  set grepprg=ag\ --vimgrep
+  set grepprg=ag\ --hidden\ --vimgrep
   set grepformat=%f:%l:%c:%m
 endif
 

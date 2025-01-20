@@ -135,6 +135,7 @@ let g:NERDSpaceDelims = 1
 if has("nvim")
   au TermOpen * tnoremap <buffer> <C-[> <C-\><C-n>
   au FileType fzf silent! tunmap <buffer> <Esc>
+  au FileType fzf silent! tunmap <buffer> <C-[>
 endif
 
 "" Whitespace
@@ -173,6 +174,7 @@ lua <<EOF
   local opts = {
       tools = {
           autoSetHints = false,
+          hover_with_actions = true,
           inlay_hints = {
               show_parameter_hints = false,
               parameter_hints_prefix = "",

@@ -3,7 +3,7 @@ all: utilities brightness terminal vim rust i3 autorandr copy mail git time
 utilities:
 	@echo "\n---utilities---\n"
 	sudo apt install \
-		python acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
+		python3 python3-pip acpi ranger feh udiskie lxappearance imagemagick scrot arandr pavucontrol \
 		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl tldr \
 		jq network-manager-openvpn curl git gnome-screensaver encfs \
 		colordiff xclip silversearcher-ag htop pulsemixer zeal okular \
@@ -32,6 +32,7 @@ terminal:
 vim:
 	@echo "\n---vim---\n"
 	sudo apt install universal-ctags
+	pip3 install --break-system-packages neovim
 	sudo wget https://github.com/neovim/neovim/releases/download/v0.10.3/nvim.appimage -O /usr/local/bin/nvim
 	sudo chmod +x /usr/local/bin/nvim
 	cp vimrc ~/.vimrc

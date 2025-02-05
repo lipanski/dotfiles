@@ -108,7 +108,7 @@ bar {
 
 # Key bindings
 
-bindsym $mod+space exec rofi -modi "run,clipboard:greenclip print,window,ssh" -show run
+bindsym $mod+space exec rofi -modi run -modi window -modi ssh -modi "clipboard:greenclip print" -show run
 bindsym $mod+q kill
 bindsym $mod+x exec power lock
 bindsym $mod+Shift+x exec power suspend
@@ -142,7 +142,7 @@ exec_always feh --bg-fill ~/Pictures/wallpapers/pieter-bruegel-hunters-in-the-sn
 exec ~/.dropbox-dist/dropboxd
 exec udiskie -as
 exec nm-applet
-exec gnome-screensaver
+# exec gnome-screensaver
 exec --no-startup-id xautolock -time 5 -locker 'power try-lock' &
 exec system-config-printer-applet
 exec_always mbsync-daemon &

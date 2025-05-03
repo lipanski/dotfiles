@@ -18,6 +18,7 @@ brightness:
 	@echo "\n---brightness---\n"
 	sudo apt install brightnessctl
 	sudo chmod +s /usr/bin/brightnessctl
+	sudo usermod -aG video ${USER}
 
 terminal:
 	@echo "\n---terminal---\n"
@@ -33,8 +34,8 @@ vim:
 	@echo "\n---vim---\n"
 	sudo apt install universal-ctags
 	pip3 install --break-system-packages neovim
-	sudo wget https://github.com/neovim/neovim/releases/download/v0.10.3/nvim.appimage -O /usr/local/bin/nvim
-	sudo chmod +x /usr/local/bin/nvim
+	sudo wget https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.appimage -O /usr/bin/nvim
+	sudo chmod +x /usr/bin/nvim
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim/
 	cp config/nvim/init.vim ~/.config/nvim/

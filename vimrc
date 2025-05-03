@@ -57,7 +57,7 @@ Plug 'hrsh7th/cmp-buffer' " Completion
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion
 Plug 'hrsh7th/cmp-path' " Completion
 Plug 'hrsh7th/vim-vsnip' " Snippet engine
-Plug 'simrat39/rust-tools.nvim' " Enable some features of rust-analyzer, such as inlay hints and more
+Plug 'mrcjkb/rustaceanvim' " Enable some features of rust-analyzer, such as inlay hints and more (similar to simrat39/rust-tools.nvim)
 call plug#end()
 
 "" General
@@ -171,19 +171,24 @@ let g:tagbar_sort = 0
 lua <<EOF
   local nvim_lsp = require'lspconfig'
 
-  local opts = {
-      tools = {
-          autoSetHints = false,
-          hover_with_actions = true,
-          inlay_hints = {
-              show_parameter_hints = false,
-              parameter_hints_prefix = "",
-              other_hints_prefix = "",
-          },
-      },
-  }
-
-  require('rust-tools').setup(opts)
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.keymap.set(
+    "n",
+    "<C-space>",
+    function()
+      vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
+      -- or vim.lsp.buf.codeAction() if you don't want grouping.
+    end,
+    { silent = true, buffer = bufnr }
+  )
+  vim.keymap.set(
+    "n",
+    "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+    function()
+      vim.cmd.RustLsp({'hover', 'actions'})
+    end,
+    { silent = true, buffer = bufnr }
+  )
 EOF
 
 lua <<EOF
@@ -272,7 +277,7 @@ let g:netrw_banner = 0
 let g:netrw_sort_options = "i"
 
 " Hide gitignored files and other common patterns
-let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/'
+" let g:netrw_list_hide = netrw_gitignore#Hide() . 'node_modules/,\.bundle/,\.git/'
 
 "" Mail
 
@@ -326,7 +331,7 @@ autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold(v:lnum)
 let g:rustfmt_autosave = 1
 
 autocmd FileType rust nnoremap <C-b> :Cbuild<CR>
-autocmd FileType rust nnoremap <C-x> :RustRunnables<CR>
+autocmd FileType rust nnoremap <C-x> :RustLsp runnables<CR>
 
 "" Claude
 

@@ -171,24 +171,33 @@ let g:tagbar_sort = 0
 lua <<EOF
   local nvim_lsp = require'lspconfig'
 
-  local bufnr = vim.api.nvim_get_current_buf()
-  vim.keymap.set(
-    "n",
-    "<C-space>",
-    function()
-      vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
-      -- or vim.lsp.buf.codeAction() if you don't want grouping.
-    end,
-    { silent = true, buffer = bufnr }
-  )
-  vim.keymap.set(
-    "n",
-    "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
-    function()
-      vim.cmd.RustLsp({'hover', 'actions'})
-    end,
-    { silent = true, buffer = bufnr }
-  )
+  vim.g.rustaceanvim = {
+    tools = {
+      enable_clippy = false
+    },
+    server = {
+      on_attach = function(client, bufnr)
+        vim.keymap.set(
+          "n",
+          "<C-space>",
+          function()
+            vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
+            -- or vim.lsp.buf.codeAction() if you don't want grouping.
+          end,
+          { silent = true, buffer = bufnr }
+        )
+        vim.keymap.set(
+          "n",
+          "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+          function()
+            vim.cmd.RustLsp({'hover', 'actions'})
+          end,
+          { silent = true, buffer = bufnr }
+        )
+      end,
+    },
+  }
+
 EOF
 
 lua <<EOF

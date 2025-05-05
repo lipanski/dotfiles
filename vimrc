@@ -173,7 +173,7 @@ lua <<EOF
 
   vim.g.rustaceanvim = {
     tools = {
-      enable_clippy = false
+      enable_clippy = true
     },
     server = {
       on_attach = function(client, bufnr)

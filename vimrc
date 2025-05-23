@@ -64,6 +64,9 @@ call plug#end()
 
 syntax on
 
+" Redraw time for syntax highlighting
+set rdt=0
+
 set encoding=utf-8
 
 set number

@@ -1,0 +1,32 @@
+shell-integration-features = no-cursor,sudo,title
+
+# font
+font-size = 13
+font-family = "Monaco"
+font-thicken = true
+
+# clipboard
+copy-on-select = clipboard
+
+# mouse
+mouse-scroll-multiplier = 2
+mouse-hide-while-typing = true
+
+# cursor
+cursor-style = block
+cursor-style-blink = false
+
+# window
+initial-window = true
+resize-overlay = never
+window-save-state = always
+window-step-resize = false
+window-padding-balance = true
+confirm-close-surface = true
+window-inherit-working-directory = false
+working-directory = $HOME
+
+# macos
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = true

@@ -15,16 +15,14 @@ Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plug 'bling/vim-bufferline'
 Plug 'folke/which-key.nvim' " Shows available keybindings
 Plug 'hashivim/vim-terraform'
-Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'ibhagwan/fzf-lua'
+Plug 'janko-m/vim-test'
 Plug 'junegunn/goyo.vim' " Distraction-free writing
 Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags' " Manage ctags updates automatically
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
-Plug 'rebelot/kanagawa.nvim'
-Plug 'catppuccin/nvim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'ntpeters/vim-better-whitespace'
@@ -33,7 +31,6 @@ Plug 'rhysd/vim-crystal'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'stsewd/fzf-checkout.vim' " Manage branches and tags with fzf
 Plug 'tmsvg/pear-tree' " Close parenthesis, curly braces etc.
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-abolish'
@@ -75,7 +72,7 @@ set encoding=utf-8
 set number
 
 " Theme
-colorscheme gruvbox " kanagawa
+colorscheme gruvbox
 set background=dark
 
 " Always display the status line
@@ -136,13 +133,6 @@ let g:bufferline_active_buffer_right = ''
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
-" Remap insert mode escape in :term while leaving fzf to its default
-if has("nvim")
-  au TermOpen * tnoremap <buffer> <C-[> <C-\><C-n>
-  au FileType fzf silent! tunmap <buffer> <Esc>
-  au FileType fzf silent! tunmap <buffer> <C-[>
-endif
 
 "" Whitespace
 
@@ -339,13 +329,6 @@ let g:pear_tree_smart_openers     = 1
 " Never auto-select entries when displaying the autocomplete menu
 set completeopt=menu,menuone,noinsert,noselect
 
-" Disable fzf preview window
-let g:fzf_preview_window = ''
-
-" Use fzf with ag in raw mode to allow passing arguments - e.g. `:Ag --ruby 'some search keyword' /some/search/path`
-" See https://github.com/junegunn/fzf.vim/issues/27
-command! -bang -nargs=+ -complete=file Ag call fzf#vim#ag_raw('--hidden ' . <q-args>, <bang>0)
-
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   " Use Ag over Grep
@@ -440,17 +423,16 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
-" Key bindings for fzf and ag
-nnoremap <leader>f :GFiles<CR>
-nnoremap <leader>g :Ag<SPACE>
-vnoremap <leader>g y:Ag<SPACE>-Q<SPACE>"<C-R>=escape(@",'"')<CR>"<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>j :Tags<CR>
-nnoremap <leader>k :BTags<CR>
+" Key bindings for fzf and diagnostics
+nnoremap <leader>p :FzfLua global<CR>
+nnoremap <leader>f :FzfLua git_files<CR>
+nnoremap <leader>g :FzfLua grep<CR>
+vnoremap <leader>g y:FzfLua live_grep<SPACE>query="<C-R>=@"<CR>"<CR>
+nnoremap <leader>b :FzfLua buffers<CR>
+nnoremap <leader>j :FzfLua tags<CR>
+nnoremap <leader>k :FzfLua btags<CR>
+nnoremap <leader>c :FzfLua git_branches<CR>
 nnoremap <leader>a :Trouble diagnostics<CR>
-
-" fzf-checkout
-nnoremap <leader>c :GBranches --locals<CR>
 
 " Clear all buffers
 nmap <leader>l :bufdo :bd<CR>

@@ -1,11 +1,10 @@
 URxvt.loginShell: true
 URxvt.saveLines: 10000
-URxvt.font: xft:DejaVu Sans Mono:size=11,xft:Symbola:size=11
+URxvt.font: xft:JetBrainsMono\ Nerd\ Font\ Mono:size=11,xft:DejaVu Sans Mono:size=11,xft:Symbola:size=11
 URxvt.lineSpace: 0
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
-! Fix urxvt starting with the cursor in the middle
 URxvt.geometry: 400x400
 
 ! Plugins

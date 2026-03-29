@@ -238,10 +238,9 @@ lua <<EOF
   }
 
   vim.lsp.config('ruby_lsp', {
-    -- Workaround to avoid install ruby-lsp for every Ruby
+    -- Workaround to avoid installing ruby-lsp for every Ruby
     -- See https://github.com/mason-org/mason.nvim/issues/1777
-    -- cmd = { os.getenv('HOME') .. '/.asdf/shims/ruby-lsp' },
-    cmd_env = { BUNDLE_GEMFILE = vim.fn.getenv('GLOBAL_GEMFILE') },
+    cmd = { os.getenv('HOME') .. '/.local/share/nvim/mason/bin/ruby-lsp --use-launcher' }
   })
   vim.lsp.enable('ruby_lsp', 'rust_analyzer')
 

@@ -234,13 +234,14 @@ lua <<EOF
   require('mason-lspconfig').setup {
     ensure_installed = { 'ruby_lsp', 'rust_analyzer' },
     automatic_installation = true,
+    automatic_setup = false,
     automatic_enable = false, -- nvim_lsp should do this, otherwise we end up with duplicates
   }
 
   vim.lsp.config('ruby_lsp', {
     -- Workaround to avoid installing ruby-lsp for every Ruby
     -- See https://github.com/mason-org/mason.nvim/issues/1777
-    cmd = { os.getenv('HOME') .. '/.local/share/nvim/mason/bin/ruby-lsp --use-launcher' }
+    cmd = { os.getenv('HOME') .. '/.local/share/nvim/mason/bin/ruby-lsp', '--use-launcher' }
   })
   vim.lsp.enable('ruby_lsp', 'rust_analyzer')
 
@@ -252,7 +253,7 @@ lua <<EOF
       map("n", "gd", vim.lsp.buf.definition, "LSP: goto definition")
       map("n", "gr", vim.lsp.buf.references, "LSP: references")
       map("n", "K", vim.lsp.buf.hover, "LSP: hover")
-      map("n", "<leader>ga", vim.lsp.buf.code_action, "LSP: code action")
+      map("n", "ga", vim.lsp.buf.code_action, "LSP: code action")
       -- map("n", "<leader>lr", vim.lsp.buf.rename, "LSP: rename")
       -- map("n", "<leader>lf", function()
       --   vim.lsp.buf.format({ async = true })
@@ -269,7 +270,7 @@ lua <<EOF
       on_attach = function(_, bufnr)
         local map = function(m, l, r, d) vim.keymap.set(m, l, r, { buffer = bufnr, desc = d }) end
         map("n", "ga", function() vim.cmd.RustLsp("codeAction") end, "Rust: code action")
-        map("n", "K", function() vim.cmd.RustLsp({'hover', 'actions'}) end, "Rust: hover actions")
+        -- map("n", "K", function() vim.cmd.RustLsp({'hover', 'actions'}) end, "Rust: hover actions")
       end,
     },
   }
@@ -364,6 +365,14 @@ map <C-n> :NERDTreeToggle<CR>
 " Spell checking
 command! English execute "setlocal spell spelllang=en_gb"
 command! German execute "setlocal spell spelllang=de_de"
+
+"" Markdown
+
+augroup Markdown
+  autocmd!
+  autocmd FileType markdown set wrap
+  autocmd FileType markdown set colorcolumn=80
+augroup END
 
 "" Wiki
 

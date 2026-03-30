@@ -20,7 +20,6 @@ Plug 'ibhagwan/fzf-lua'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/goyo.vim' " Distraction-free writing
 Plug 'leafgarland/typescript-vim'
-Plug 'ludovicchabant/vim-gutentags' " Manage ctags updates automatically
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -156,14 +155,6 @@ set incsearch
 
 "" Switch pwd only for these file paths
 let g:rooter_targets = ['~/dev/*']
-
-"" CTags
-
-let g:gutentags_generate_on_empty_buffer = 1
-let g:gutentags_ctags_exclude = ['*.js', '*.json', '*.md', '*.svg', '*.xml', '*/bin/*', '*/log/*', '*/node_modules/*', '*/bower_components/*', '*/vendor/*', '*/public/*']
-let g:gutentags_file_list_command = 'git ls-files'
-let g:gutentags_cache_dir = '~/.tags'
-let g:tagbar_sort = 0
 
 "" LSP
 

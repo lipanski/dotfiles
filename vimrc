@@ -18,6 +18,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ibhagwan/fzf-lua'
 Plug 'janko-m/vim-test'
+Plug 'j-hui/fidget.nvim' " LSP progress
 Plug 'junegunn/goyo.vim' " Distraction-free writing
 Plug 'leafgarland/typescript-vim'
 Plug 'majutsushi/tagbar'
@@ -52,10 +53,12 @@ Plug 'hrsh7th/nvim-cmp' " Completion
 Plug 'hrsh7th/cmp-buffer' " Completion
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion
 Plug 'hrsh7th/cmp-path' " Completion
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help' " Completion signature help
 Plug 'L3MON4D3/LuaSnip' " Snippet engine
 Plug 'saadparwaiz1/cmp_luasnip' " Snippet engine
 Plug 'mrcjkb/rustaceanvim' " Enable some features of rust-analyzer, such as inlay hints and more (similar to simrat39/rust-tools.nvim)
 Plug 'folke/trouble.nvim' " Diagnostics
+Plug 'mhinz/vim-startify' " Startup screen
 
 call plug#end()
 
@@ -162,6 +165,9 @@ lua <<EOF
   -- trouble
   require('trouble').setup()
 
+  -- LSP progress
+  require('fidget').setup()
+
   -- tresitter
   require('nvim-treesitter').install {
     'css',
@@ -225,8 +231,9 @@ lua <<EOF
   require('mason-lspconfig').setup {
     ensure_installed = { 'ruby_lsp', 'rust_analyzer' },
     automatic_installation = true,
-    automatic_setup = false,
-    automatic_enable = false, -- nvim_lsp should do this, otherwise we end up with duplicates
+    automatic_enable = {
+      exclude = { 'rust_analyzer' } -- This is handled by rustaceanvim
+    },
   }
 
   vim.lsp.config('ruby_lsp', {
@@ -234,7 +241,7 @@ lua <<EOF
     -- See https://github.com/mason-org/mason.nvim/issues/1777
     cmd = { os.getenv('HOME') .. '/.local/share/nvim/mason/bin/ruby-lsp', '--use-launcher' }
   })
-  vim.lsp.enable('ruby_lsp', 'rust_analyzer')
+  vim.lsp.enable('ruby_lsp')
 
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
@@ -245,6 +252,7 @@ lua <<EOF
       map("n", "gr", vim.lsp.buf.references, "LSP: references")
       map("n", "K", vim.lsp.buf.hover, "LSP: hover")
       map("n", "ga", vim.lsp.buf.code_action, "LSP: code action")
+      map("v", "ga", vim.lsp.buf.code_action, "LSP: code action")
       -- map("n", "<leader>lr", vim.lsp.buf.rename, "LSP: rename")
       -- map("n", "<leader>lf", function()
       --   vim.lsp.buf.format({ async = true })
@@ -273,22 +281,23 @@ lua <<EOF
     -- Enable LSP snippets
     snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
     mapping = {
-      ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-      ['<Tab>'] = cmp.mapping.select_next_item(),
+      ['<C-k>'] = cmp.mapping.select_prev_item(),
+      ['<C-j>'] = cmp.mapping.select_next_item(),
       -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       -- ['<C-e>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({
-        -- behavior = cmp.ConfirmBehavior.Insert,
         select = true,
       })
     },
     sources = {
       { name = 'nvim_lsp' },
+      { name = 'nvim_lsp_signature_help' },
       { name = 'luasnip' },
       { name = 'path' },
       { name = 'buffer' },
+      { name = 'ultisnips' },
     },
     preselect = false,
     completion = {
@@ -423,7 +432,7 @@ nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
 " Key bindings for fzf and diagnostics
-nnoremap <leader>p :FzfLua global<CR>
+nnoremap <leader>p :FzfLua lsp_live_workspace_symbols<CR>
 nnoremap <leader>f :FzfLua git_files<CR>
 nnoremap <leader>g :FzfLua grep<CR>
 vnoremap <leader>g y:FzfLua live_grep<SPACE>query="<C-R>=@"<CR>"<CR>

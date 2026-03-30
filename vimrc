@@ -339,6 +339,10 @@ endif
 " Snippets
 let g:UltiSnipsExpandTrigger="<c-s>"
 
+"" Startify
+
+let g:startify_custom_header = 'startify#pad(["hello", "world"])'
+
 "" Directory tree
 
 let g:netrw_liststyle = 3

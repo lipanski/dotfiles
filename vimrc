@@ -236,7 +236,11 @@ lua <<EOF
     -- See https://github.com/mason-org/mason.nvim/issues/1777
     cmd = { os.getenv('HOME') .. '/.local/share/nvim/mason/bin/ruby-lsp', '--use-launcher' }
   })
-  vim.lsp.enable('ruby_lsp')
+  vim.lsp.config('rust_analyzer', {
+    filetypes = { 'rust', 'startify' },
+    root_markers = { 'Cargo.toml', '.git' }
+  })
+  vim.lsp.enable({ 'ruby_lsp', 'rust_analyzer' })
 
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
@@ -256,18 +260,18 @@ lua <<EOF
   })
 
   -- rust
-  vim.g.rustaceanvim = {
-    tools = {
-      enable_clippy = true
-    },
-    server = {
-      on_attach = function(_, bufnr)
-        local map = function(m, l, r, d) vim.keymap.set(m, l, r, { buffer = bufnr, desc = d }) end
-        map("n", "ga", function() vim.cmd.RustLsp("codeAction") end, "Rust: code action")
-        -- map("n", "K", function() vim.cmd.RustLsp({'hover', 'actions'}) end, "Rust: hover actions")
-      end,
-    },
-  }
+  -- vim.g.rustaceanvim = {
+  --   tools = {
+  --     enable_clippy = true
+  --   },
+  --   server = {
+  --     on_attach = function(_, bufnr)
+  --       local map = function(m, l, r, d) vim.keymap.set(m, l, r, { buffer = bufnr, desc = d }) end
+  --       map("n", "ga", function() vim.cmd.RustLsp("codeAction") end, "Rust: code action")
+  --       -- map("n", "K", function() vim.cmd.RustLsp({'hover', 'actions'}) end, "Rust: hover actions")
+  --     end,
+  --   },
+  -- }
 
   -- autocomplete
   local cmp = require('cmp')

@@ -59,7 +59,6 @@ Plug 'saadparwaiz1/cmp_luasnip' " Snippet engine
 Plug 'mrcjkb/rustaceanvim' " Enable some features of rust-analyzer, such as inlay hints and more (similar to simrat39/rust-tools.nvim)
 Plug 'folke/trouble.nvim' " Diagnostics
 Plug 'mhinz/vim-startify' " Startup screen
-
 call plug#end()
 
 "" General
@@ -159,8 +158,6 @@ set incsearch
 "" Switch pwd only for these file paths
 let g:rooter_targets = ['~/dev/*']
 
-"" LSP
-
 lua <<EOF
   -- trouble
   require('trouble').setup()
@@ -169,13 +166,13 @@ lua <<EOF
   require('fidget').setup()
 
   -- tresitter
+  -- NOTE: If treesitter crashes, clean the parsers `rm -rf ~/.local/share/nvim/site/*` and let mason reinstall them
   require('nvim-treesitter').install {
     'css',
     'html',
     'javascript',
-    -- 'markdown',
-    -- 'markdown_inline',
-    'ruby',
+    'markdown',
+    'markdown_inline',
     'rust',
     'scss',
   }
@@ -185,14 +182,12 @@ lua <<EOF
       'css',
       'html',
       'javascript',
-      -- 'markdown',
-      -- 'markdown_inline',
-      'ruby',
+      'markdown',
+      'markdown_inline',
       'rust',
       'scss',
     },
     callback = function(args)
-      do return end -- this thing is not ready
       local buf, filetype = args.buf, args.match
       local language = vim.treesitter.language.get_lang(filetype)
       if not language then
@@ -342,6 +337,12 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 "" Startify
 
 let g:startify_custom_header = 'startify#pad(["hello", "world"])'
+let g:startify_lists = [
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
 
 "" Directory tree
 

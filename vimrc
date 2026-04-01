@@ -238,7 +238,7 @@ lua <<EOF
   })
   vim.lsp.config('rust_analyzer', {
     filetypes = { 'rust', 'startify' },
-    root_markers = { 'Cargo.toml', '.git' }
+    root_markers = { 'Cargo.toml', '.git' },
     capabilities = capabilities,
   })
   vim.lsp.enable({ 'ruby_lsp', 'rust_analyzer' })

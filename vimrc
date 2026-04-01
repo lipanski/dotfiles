@@ -10,6 +10,8 @@ endif
 
 call plug#begin('~/.vim/bundle')
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'airblade/vim-gitgutter' " Gutter with line modification icons
 Plug 'airblade/vim-rooter' " Automatically set pwd to git repo root
 Plug 'bling/vim-bufferline'
@@ -54,9 +56,7 @@ Plug 'hrsh7th/cmp-buffer' " Completion
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion
 Plug 'hrsh7th/cmp-path' " Completion
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help' " Completion signature help
-Plug 'L3MON4D3/LuaSnip' " Snippet engine
-Plug 'saadparwaiz1/cmp_luasnip' " Snippet engine
-Plug 'mrcjkb/rustaceanvim' " Enable some features of rust-analyzer, such as inlay hints and more (similar to simrat39/rust-tools.nvim)
+" Plug 'mrcjkb/rustaceanvim' " Enable some features of rust-analyzer, such as inlay hints and more (similar to simrat39/rust-tools.nvim)
 Plug 'folke/trouble.nvim' " Diagnostics
 Plug 'mhinz/vim-startify' " Startup screen
 call plug#end()
@@ -142,7 +142,7 @@ set shiftwidth=2
 set shiftround
 set expandtab
 set fixendofline
-let g:strip_whitespace_on_save = 1
+" let g:strip_whitespace_on_save = 1 " This is broken
 let g:strip_only_modified_lines = 1
 let g:strip_whitespace_confirm = 0
 
@@ -171,7 +171,6 @@ lua <<EOF
     'css',
     'html',
     'javascript',
-    'markdown',
     'markdown_inline',
     'rust',
     'scss',
@@ -182,7 +181,6 @@ lua <<EOF
       'css',
       'html',
       'javascript',
-      'markdown',
       'markdown_inline',
       'rust',
       'scss',
@@ -231,10 +229,15 @@ lua <<EOF
     },
   }
 
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
   vim.lsp.config('ruby_lsp', {
     -- Workaround to avoid installing ruby-lsp for every Ruby
     -- See https://github.com/mason-org/mason.nvim/issues/1777
-    cmd = { os.getenv('HOME') .. '/.local/share/nvim/mason/bin/ruby-lsp', '--use-launcher' }
+    cmd = { os.getenv('HOME') .. '/.local/share/nvim/mason/bin/ruby-lsp', '--use-launcher' },
+    capabilities = capabilities,
+  })
+  vim.lsp.config('rust_analyzer', {
+    capabilities = capabilities,
   })
   vim.lsp.config('rust_analyzer', {
     filetypes = { 'rust', 'startify' },
@@ -274,11 +277,12 @@ lua <<EOF
   -- }
 
   -- autocomplete
+  require('cmp_nvim_ultisnips').setup({})
+  local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
   local cmp = require('cmp')
-  local luasnip = require('luasnip')
   cmp.setup({
     -- Enable LSP snippets
-    snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
+    snippet = { expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end },
     mapping = {
       ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<C-j>'] = cmp.mapping.select_next_item(),
@@ -286,22 +290,30 @@ lua <<EOF
       -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       -- ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({
-        select = true,
-      })
+      ['<CR>'] = cmp.mapping.confirm({ select = true, }),
+      ['<Tab>'] = cmp.mapping(
+        function(fallback)
+          cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        end,
+        { 'i', 's', --[[ 'c' (to enable the mapping in command mode) ]] }
+      ),
+      ['<S-Tab>'] = cmp.mapping(
+        function(fallback)
+          cmp_ultisnips_mappings.jump_backwards(fallback)
+        end,
+        { 'i', 's', --[[ 'c' (to enable the mapping in command mode) ]] }
+      ),
     },
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'nvim_lsp_signature_help' },
-      { name = 'luasnip' },
+      { name = 'ultisnips' },
       { name = 'path' },
       { name = 'buffer' },
-      { name = 'ultisnips' },
     },
-    preselect = false,
-    completion = {
-      autocomplete = false,
-    },
+    -- preselect = false,
+    -- completion = {
+    --   autocomplete = false,
+    -- },
   })
 
   -- add a border to floating windows

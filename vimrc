@@ -27,7 +27,6 @@ Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'rhysd/vim-crystal'
 Plug 'rust-lang/rust.vim'
@@ -42,6 +41,7 @@ Plug 'tpope/vim-eunuch' " Better support for some Unix commands - :Delete, :Move
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'stevearc/conform.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' " Navigation shortcuts: [q / ]q quickfix list, [b / ]b buffer list, [p / ]p paste above or below line, [<Space> / ]<Space> add a blank line
 Plug 'vim-ruby/vim-ruby'
@@ -142,9 +142,6 @@ set shiftwidth=2
 set shiftround
 set expandtab
 set fixendofline
-" let g:strip_whitespace_on_save = 1 " This is broken
-let g:strip_only_modified_lines = 1
-let g:strip_whitespace_confirm = 0
 
 "" Search
 
@@ -314,8 +311,20 @@ lua <<EOF
     -- },
   })
 
+  require('conform').setup({
+    formatters_by_ft = {
+      rust = {},
+      ruby = {},
+      ['*'] = { 'trim_whitespace' },
+    },
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = 'fallback',
+    },
+  })
+
   -- add a border to floating windows
-  vim.o.winborder = "single"
+  vim.o.winborder = 'single'
 EOF
 
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })

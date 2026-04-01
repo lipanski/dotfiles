@@ -237,11 +237,9 @@ lua <<EOF
     capabilities = capabilities,
   })
   vim.lsp.config('rust_analyzer', {
-    capabilities = capabilities,
-  })
-  vim.lsp.config('rust_analyzer', {
     filetypes = { 'rust', 'startify' },
     root_markers = { 'Cargo.toml', '.git' }
+    capabilities = capabilities,
   })
   vim.lsp.enable({ 'ruby_lsp', 'rust_analyzer' })
 
@@ -282,7 +280,7 @@ lua <<EOF
   local cmp = require('cmp')
   cmp.setup({
     -- Enable LSP snippets
-    snippet = { expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end },
+    snippet = { expand = function(args) vim.fn['UltiSnips#Anon'](args.body) end },
     mapping = {
       ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<C-j>'] = cmp.mapping.select_next_item(),

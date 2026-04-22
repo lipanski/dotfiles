@@ -10,4 +10,5 @@ alias vimwiki="vim -c VimwikiIndex"
 
 export EDITOR=nvim
 export ANSIBLE_RETRY_FILES_ENABLED=0
+export DO_NOT_TRACK=true
 

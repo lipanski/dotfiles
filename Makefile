@@ -1,4 +1,4 @@
-all: utilities brightness terminal vim rust i3 autorandr copy mail git time
+all: utilities brightness terminal vim i3 autorandr copy mail git time
 
 utilities:
 	@echo "\n---utilities---\n"
@@ -7,7 +7,7 @@ utilities:
 		xautolock rofi xbacklight jmtpfs fonts-font-awesome playerctl tldr \
 		jq network-manager-openvpn curl git gnome-screensaver encfs \
 		colordiff xclip silversearcher-ag htop pulsemixer zeal okular \
-		blueman
+		blueman calibre ripgrep
 
 extra:
 	@echo "\n---extra---\n"

@@ -143,6 +143,7 @@ exec ~/.dropbox-dist/dropboxd
 exec udiskie -as
 exec nm-applet
 # exec gnome-screensaver
+# exec --no-startup-id redshift -l 52:13
 exec --no-startup-id xautolock -time 5 -locker 'power try-lock' &
 exec system-config-printer-applet
 exec_always mbsync-daemon &

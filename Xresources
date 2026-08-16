@@ -1,6 +1,6 @@
 URxvt.loginShell: true
 URxvt.saveLines: 10000
-URxvt.font: xft:JetBrainsMono\ Nerd\ Font\ Mono:size=12,xft:DejaVu Sans Mono:size=12,xft:Symbola:size=12
+URxvt.font: xft:JetBrainsMono\ Nerd\ Font\ Mono:size=11,xft:DejaVu Sans Mono:size=11,xft:Symbola:size=11
 URxvt.lineSpace: 0
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
@@ -39,3 +39,6 @@ URxvt.clipboard.autocopy: true
 *color7:  #a89984
 *color15: #ebdbb2
 
+! Fix large cursor
+Xcursor.size: 24
+Xft.dpi: 96

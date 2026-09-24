@@ -215,7 +215,6 @@ lua <<EOF
     { "<leader>g", group = "Find words" },
   })
 
-
   -- lsp
   require('mason').setup()
   require('mason-lspconfig').setup {
@@ -385,6 +384,9 @@ autocmd FileType mail DisableStripWhitespaceOnSave
 
 "" NERDTree
 
+" Show hidden files
+let NERDTreeShowHidden = 1
+
 " Toggle NERDTree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 
@@ -463,7 +465,7 @@ nmap <silent> <leader>tg :TestVisit<CR>
 nnoremap <leader>p :FzfLua lsp_live_workspace_symbols<CR>
 nnoremap <leader>f :FzfLua git_files<CR>
 nnoremap <leader>g :FzfLua grep<CR>
-vnoremap <leader>g y:FzfLua live_grep<SPACE>query="<C-R>=@"<CR>"<CR>
+vnoremap <leader>g y:FzfLua grep_visual<CR>
 nnoremap <leader>b :FzfLua buffers<CR>
 nnoremap <leader>j :FzfLua tags<CR>
 nnoremap <leader>k :FzfLua btags<CR>
